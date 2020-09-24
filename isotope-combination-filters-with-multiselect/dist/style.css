@@ -18,7 +18,7 @@ body {
   height: 80px;
   padding: 5px;
   margin: 5px;
-  color: white;
+  color: black;
   float: left;
 }
 
@@ -35,10 +35,8 @@ p {
   color: blue;
 }
 
-.red { background: red; }
 .blue { background: blue; }
 .green { background: green; }
-.yellow { background: yellow; color: black; }
 
 .filter-select {
 	display: block;
