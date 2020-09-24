@@ -13,8 +13,6 @@ var data = {
 
 var $container = $('#container');
 
-createContent();
-
 //var $filterDisplay = $('#filter-display');
 
 $container.isotope();
@@ -91,33 +89,4 @@ function getComboFilter() {
   }
   var comboFilter = combo.join(', ');
   return comboFilter;
-}
-
-
-// helper made to make items
-function createContent() {
-  var brand, productType, color, size;
-  var items = '';
-  // dynamically create content
-  for (var i=0, len1 = data.brands.length; i < len1; i++) {
-    brand = data.brands[i];
-    for (var j=0, len2 = data.productTypes.length; j < len2; j++) {
-      productType = data.productTypes[j];
-        for (var l=0, len3 = data.colors.length; l < len3; l++) {
-        color = data.colors[l];
-        for (var k=0, len4 = data.sizes.length; k < len4; k++) {
-          size = data.sizes[k];
-          var itemHtml = '<div class="item ' + brand + ' ' +
-            productType + ' ' + color + ' ' + size + '">' +
-            '<p>' + brand + '</p>' +
-            '<p>' + productType + '</p>' +
-            '<p>' + size + '</p>' +
-            '</div>';
-            items += itemHtml;
-        }
-      }
-    }
-  }
-
-  $container.append( items );
 }

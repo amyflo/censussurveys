@@ -13,9 +13,9 @@
 <div class="options">
   <div class="option-set">
   <h3>Brand</h3>
-    <select class="filter-select" value-group="brand" multiple>
+    <select class="filter-select" value-group="brand" style="width:200px" multiple  >
       <option value="">any</option>
-      <option value=".brand1">brand1</option>
+      <option value=".brand1">National</option>
       <option value=".brand2">brand2</option>
       <option value=".brand3">brand3</option>
       <option value=".brand4">brand4</option>
@@ -24,7 +24,7 @@
 
     <div class="option-set">
     <h3>Type</h3>
-    <select class="filter-select" value-group="type" multiple>
+    <select class="filter-select" value-group="type" style="width:200px" multiple>
       <option value="">any</option>
       <option value=".alpha">alpha</option>
       <option value=".beta">beta</option>
@@ -33,9 +33,9 @@
     </select>
   </div>
 
-    <div class="option-set">
+  <div class="option-set">
 <h3>Color</h3>
-    <select class="filter-select" value-group="color" multiple>
+    <select class="filter-select" value-group="color" style="width:200px" multiple>
       <option value="">any</option>
       <option value=".red">red</option>
       <option value=".blue">blue</option>
@@ -45,7 +45,7 @@
   </div>
   <div class="option-set">
   <h3>Size</h3>
-    <select class="filter-select" value-group="size" multiple>
+    <select class="filter-select" value-group="size" style="width:200px"multiple>
       <option value="">any</option>
       <option value=".size8">size8</option>
       <option value=".size9">size9</option>
@@ -57,7 +57,12 @@
 
 <!--<p id="filter-display"></p>-->
 
-<div id="container"></div>
+<div id="container">
+  <div class="item brand1 alpha red yellow size8"></div>
+  <div class="item brand1 alpha blue size8"></div>
+  <div class="item brand1 alpha green size8"></div>
+  <div class="item brand1 alpha yellow size8"></div>
+</div>
 <!-- partial -->
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script src='https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js'></script><script  src="./script.js"></script>
