@@ -10,71 +10,54 @@
 <!-- partial:index.partial.html -->
 <h1>Find a Survey from the U.S. Census Bureau</h1>
 
-<div class="options">
-  <div class="option-set">
-  <h3>Frequency</h3>
-    <select class="filter-select" value-group="brand" style="width:200px" multiple  >
-      <option value="">All</option>
-      <option value=".month">Monthly</option>
-      <option value=".quarter">Quarterly</option>
-      <option value=".annual">Annual</option>
-      <option value=".decennial">Decennial</option>
-      <option value=".otherfreq">Other</option>
-    </select>
-  </div>
-
-    <div class="option-set">
-    <h3>Geography</h3>
-    <select class="filter-select" value-group="type" style="width:200px" multiple>
-      <option value="">All</option>
-      <option value=".national">National</option>
-      <option value=".state">State</option>
-      <option value=".metro">Metro Area</option>
-      <option value=".county">County</option>
-      <option value=".place">Place</option>
-      <option value=".zip">Zip Code</option>
-      <option value=".othergeo">Other</option>
-    </select>
-  </div>
-
-  <div class="option-set">
-<h3>Color</h3>
-    <select class="filter-select" value-group="color" style="width:200px" multiple>
-      <option value="">All</option>
-      <option value=".red">red</option>
-      <option value=".blue">blue</option>
-      <option value=".green">green</option>
-      <option value=".yellow">yellow</option>
-    </select>
-  </div>
-  <div class="option-set">
-  <h3>Size</h3>
-    <select class="filter-select" value-group="size" style="width:200px"multiple>
-      <option value="">All</option>
-      <option value=".size8">size8</option>
-      <option value=".size9">size9</option>
-      <option value=".size10">size10</option>
-      <option value=".size11">size11</option>
-    </select>
-  </div>
+<p><input type="text" class="quicksearch" placeholder="Search" /></p>
+<div class="grid-container">
+  <section class="sidebar">
+    <div class="options">
+      <div class="option-set">
+      <h3>Frequency</h3>
+        <select class="filter-select" value-group="brand" style="width:200px" multiple  >
+          <option value="">All</option>
+          <option value=".month">Monthly</option>
+          <option value=".quarter">Quarterly</option>
+          <option value=".annual">Annual</option>
+          <option value=".decennial">Decennial</option>
+          <option value=".otherfreq">Other</option>
+        </select>
+      </div>
+    
+        <div class="option-set">
+        <h3>Geography</h3>
+        <select class="filter-select" value-group="type" style="width:200px" multiple>
+          <option value="">All</option>
+          <option value=".national">National</option>
+          <option value=".state">State</option>
+          <option value=".metro">Metro Area</option>
+          <option value=".county">County</option>
+          <option value=".place">Place</option>
+          <option value=".zip">Zip Code</option>
+          <option value=".othergeo">Other</option>
+        </select>
+      </div>
+    </div>
+  </section>
+  
+  <section class="main-content"">
+    <div id="container">
+      <div class="item month national state metro county place">Red</div>
+      <div class="item month national state metro county place">Blue</div>
+    </div>
+  </section>
 </div>
 
 <!--<p id="filter-display"></p>-->
 
-<div id="container">
-  <div class="item brand1 alpha red yellow size8">
-    <div class="box">
-      <img src="/demo.jpg" alt="description" height="48" width="100" />
-      <p>Name</p>
-    </div>
-  </div>
-  <div class="item brand1 alpha blue size8"></div>
-  <div class="item brand1 alpha green size8"></div>
-  <div class="item brand1 alpha yellow size8"></div>
-</div>
+
 <!-- partial -->
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script src='https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js'></script><script  src="./script.js"></script>
+
+
 
 </body>
 </html>

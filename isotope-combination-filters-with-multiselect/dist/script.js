@@ -1,19 +1,14 @@
 /*jshint browser:true, undef: true, unused: true, jquery: true */
 
+
+
 // store filter per group
 var filters = {};
 
-// only used to dynamically generate items
-var data = {
-  brands: [ 'brand1', 'brand2', 'brand3', 'brand4' ],
-  productTypes: [ 'alpha', 'beta', 'gamma', 'delta' ],
-  colors: [ 'red', 'blue', 'green', 'yellow' ],
-  sizes: [ 'size8', 'size9', 'size10', 'size11' ],
-};
-
 var $container = $('#container');
-
 //var $filterDisplay = $('#filter-display');
+
+
 
 $container.isotope();
 // do stuff when checkbox change
