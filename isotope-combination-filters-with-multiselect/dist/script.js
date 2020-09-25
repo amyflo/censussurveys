@@ -8,8 +8,6 @@ var filters = {};
 var $container = $('#container');
 //var $filterDisplay = $('#filter-display');
 
-
-
 $container.isotope();
 // do stuff when checkbox change
 $('.options').on( 'change', function( event ) {
@@ -99,3 +97,4 @@ var span = document.getElementsByClassName("close")[0];
 btn.onclick = function() {
   modal.style.display = "block";
 }
+
