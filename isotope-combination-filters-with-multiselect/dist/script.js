@@ -5,8 +5,6 @@ var checkboxFilter;
 // init Isotope
 var $container = $('#container')
 
-var $output = $('#output');
-
 // filter with selects and checkboxes
 var $checkboxes = $('#filter input');
 
@@ -59,7 +57,6 @@ function Filter() {
       return checkText && checkClass
     }
   })
-  $output.text(filterValue);
 }
 
 $quicksearch.on('input', debounce(function() {
