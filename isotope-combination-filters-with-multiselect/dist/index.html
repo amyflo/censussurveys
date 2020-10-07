@@ -2,260 +2,138 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="assets/uswds-2.9.0/css/uswds.min.css" />
   <title>Find a Survey from the U.S. Census Bureau</title>
   <link rel="stylesheet" href="./style.css">
-
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<h1>Find a Survey from the U.S. Census Bureau</h1>
+<div class="header">
+  <h1></h1>
+</div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+<script src="assets/uswds-2.9.0/js/uswds.min.js"></script>
 
-<div class="grid-container">
-  <section class="sidebar">
-    <div class="options">
-      <div class="option-set">
-      <h3>Frequency</h3>
-        <select class="filter-select" value-group="brand" style="width:200px" multiple  >
-          <option value="">All</option>
-          <option value=".month">Monthly</option>
-          <option value=".quarter">Quarterly</option>
-          <option value=".annual">Annual</option>
-          <option value=".decennial">Decennial</option>
-          <option value=".otherfreq">Other</option>
-        </select>
-      </div>
-    
-        <div class="option-set">
-        <h3>Geography</h3>
-        <select class="filter-select" value-group="type" style="width:200px" multiple>
-          <option value="">All</option>
-          <option value=".national">National</option>
-          <option value=".state">State</option>
-          <option value=".metro">Metro Area</option>
-          <option value=".county">County</option>
-          <option value=".place">Place</option>
-          <option value=".zip">Zip Code</option>
-          <option value=".zcta">ZCTA</option>
-          <option value=".tract">Tract</option>
-          <option value=".block">Block Group</option>
-          <option value=".othergeo">Other</option>
-        </select>
-      </div>
-    </div>
-  </section>
-  
-  <section class="main-content" id="container">
-      <!--Annual Business Survey-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <div class="content-block">
-          <h2>Frequency</h2> 
-          <p>Annual</p>
-          <h2>Geography</h2>
-          <p>National, State, Metro, County, Place</p>
-        </div>
-      </div>
+<section class="sidebar">
+  <p><input type="text" id="quicksearch" placeholder="Search" /></p>
+  <p id="output"></p>
+  <div id="filter">
+    <h2>Frequency</h2>
+    <p class="input">
+      <label><input type="checkbox" value="monthly" /> Month</label>
+      <label><input type="checkbox" value="quarterly" /> Quarterly</label>
+      <label><input type="checkbox" value="annual" /> Annual</label>
+      <label><input type="checkbox" value="decennial" />Decennial</label>
+      <label><input type="checkbox" value="other-freq" />Other</label>
+    </p>
 
-      <!--American Community Survey-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--Annual Survey of Manufactures-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--Business Dynamics Statistics-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--Building Permits-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--County Business Patterns-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--Commodity Flow Survey-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--Decennial Census-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--e-Commerce Statistics-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--Economic Census-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--U.S. International Trade in Goods and Services-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--Job-to-Job Flows-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--LEHD Origin-Destination Employment Statistics-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--Manufacturers' Shipments, Inventories, and Orders-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--Monthly Retail Trade Survey-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--Monthly Wholesale Trade Survey-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--Nonemployer Statistics-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--New Residential Construction -->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--New Residential Sales -->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--Quarterly Financial Report-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-
-      <!--Quarterly Workforce Indicators-->
-      <div class="item annual national state metro county place" onclick="document.getElementById('abs').style.display='block'">
-        <h1>Annual Survey of Manufactures</h1>
-        <h3>Frequency</h2> 
-        <p>Annual</p>
-        <h3>Geography</h2>
-        <p>National, State, Metro, County, Place</p>
-      </div>
-  </section>
-
-<section class="modal-gallery">
-  <div id="abs" class="modal">
-    <div class="modal-content">
-      <h1>Annual Business Survey</h1>
-      <p> Includes NAICS 00 and NAICS 99 as well. Includes firms where no NAICS coding information is available. Covers 20 NAICS industries, except those classified as:
-      Forestry, fishing and hunting, and agricultural support services (NAICS 113-115).</p>
-      <a href='https://www.freecodecamp.org/'><button>Link To freeCodeCamp</button></a>
-    <button onclick="document.getElementById('abs').style.display='none'">Close</button>
-    </div>
+    <h2>Geography</h2>
+    <p class="input">
+      <label><input type="checkbox" value="national" />National</label>
+      <label><input type="checkbox" value="state" />State</label>
+      <label><input type="checkbox" value="metro" />Metro Area</label>
+      <label><input type="checkbox" value="county" />County</label>
+      <label><input type="checkbox" value="place" />Place</label>
+      <label><input type="checkbox" value="zip" />Zip Code</label>
+      <label><input type="checkbox" value="zcta" />ZCTA</label>
+      <label><input type="checkbox" value="block-group" />Block Group</label>
+      <label><input type="checkbox" value="tract" />Tract</label>
+      <label><input type="checkbox" value="block" />Block</label>
+      <label><input type="checkbox" value="economic" />Economic Place</label>
+      <label><input type="checkbox" value="other-geo" />Other</label>
+    </p>
   </div>
 </section>
 
-<!--<p id="filter-display"></p>-->
+<div id="container">
+  <!--Annual Business Survey-->
+  <div class="item annual national state metro county place">
+    <h2>Annual Business Survey (ABS)</h2>
+    <h3>Frequency</h3>
+    <p>Annual</p>
+    <h3>Geography</h3>
+    <p>National, State, Metro Area, County, Place</p>
+  </div>
 
-<!-- partial -->
+  <!--American Community Survey-->
+  <div class="item annual national state metro county place zcta block-group">
+    <h2>American Community Survey (ACS)</h2>
+    <h3>Frequency</h3>
+    <p>Annual</p>
+    <h3>Geography</h3>
+    <p>National, State, Metro Area, County, Place, ZCTA, Tract, Block Group</p>
+  </div>
+
+  <!--Annual Survey of Manufactures-->
+  <div class="item annual national state metro">
+    <h2>Annual Survey of Manufactures (ASM)</h2>
+    <h3>Frequency</h3>
+    <p>Annual</p>
+    <h3>Geography</h3>
+    <p>National, State, Metro Area</p>
+  </div>
+
+  <!--Business Dynamics Statistics-->
+  <div class="item annual national state metro">
+    <h2>Business Dynamics Statistics (BDS)</h2>
+    <h3>Frequency</h3>
+    <p>Annual</p>
+    <h3>Geography</h3>
+    <p>National, State, Metro Area</p>
+  </div>
+
+   <!--Building Permits-->
+   <div class="item monthly national state metro county place">
+    <h2>Building Permits (BPS)</h2>
+    <h3>Frequency</h3>
+    <p>Monthly</p>
+    <h3>Geography</h3>
+    <p>National, State, Metro Area, County, Place</p>
+  </div>
+
+  <!--County Business Patterns-->
+  <div class="item annual national state metro county zip">
+    <h2>County Business Patterns (CBP)</h2>
+    <h3>Frequency</h3>
+    <p>Annual</p>
+    <h3>Geography</h3>
+    <p>National, State, Metro Area, County, Zip Code</p>
+  </div>
+
+  <!--Commodity Flow Survey-->
+  <div class="item other-freq national state other-geo">
+    <h2>Commodity Flow Survey (CFS)</h2>
+    <h3>Frequency</h3>
+    <p>Other</p>
+    <h3>Geography</h3>
+    <p>National, State, Other</p>
+  </div>
+
+  <!--Decennial Census-->
+  <div class="item decennial national state county place zcta tract block-group block other-geo">
+    <h2>Decennial Census (DC)</h2>
+    <h3>Frequency</h3>
+    <p>Other</p>
+    <h3>Geography</h3>
+    <p>National, State, County, Place, ZCTA, Tract, Block Group, Block, Other</p>
+  </div>
+
+  <!--e-Commerce Statistics-->
+  <div class="item annual national">
+    <h2>e-Commerce Statistics (E-STAT)</h2>
+    <h3>Annual</h3>
+    <p>Other</p>
+    <h3>Geography</h3>
+    <p>National, State, County, Place, ZCTA, Tract, Block Group, Block, Other</p>
+  </div>
+
+</div>
+
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script src='https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js'></script>
-
+<script  src="./script.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
