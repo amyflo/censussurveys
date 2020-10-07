@@ -118,6 +118,4 @@ function createContent() {
       }
     }
   }
-
-  $container.append( items );
 }
