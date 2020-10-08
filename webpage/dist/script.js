@@ -27,7 +27,6 @@ function debounce(fn, threshold) {
 }
 
 function Filter() {
-  // map input values to an array
   var inclusives = [];
   // inclusive filters from checkboxes
   $checkboxes.each(function(i, elem) {
@@ -68,17 +67,17 @@ $checkboxes.change(function() {
 });
 
 const clearIcon = document.querySelector(".clear-icon");
-  const searchBar = document.querySelector(".quicksearch");
+const searchBar = document.querySelector(".quicksearch");
 
-  searchBar.addEventListener("keyup", () => {
-    if(searchBar.value && clearIcon.style.visibility != "visible"){
-      clearIcon.style.visibility = "visible";
-    } else if(!searchBar.value) {
-      clearIcon.style.visibility = "hidden";
-    }
-  });
-
-  clearIcon.addEventListener("click", () => {
-    searchBar.value = "";
+searchBar.addEventListener("keyup", () => {
+  if(searchBar.value && clearIcon.style.visibility != "visible"){
+    clearIcon.style.visibility = "visible";
+  } else if(!searchBar.value) {
     clearIcon.style.visibility = "hidden";
-  })
+  }
+});
+
+clearIcon.addEventListener("click", () => {
+  searchBar.value = "";
+  clearIcon.style.visibility = "hidden";
+})
