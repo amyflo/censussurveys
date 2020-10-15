@@ -26,29 +26,44 @@
 .scrolls { 
   overflow-x: scroll;
   overflow-y: hidden;
-  height: 30px;
+  height: 70px;
 white-space:nowrap
 } 
 
-.imageDiv img { 
-  box-shadow: 1px 1px 10px #999; 
-  margin: 2px;
-  max-height: 50px;
-  cursor: pointer;
-display:inline-block;
-*display:inline;
-*zoom:1;
-vertical-align:top;
-}
 
 .card {
   flex: 0 0 auto;
 }
 
-.button.active {
-  background: #b1b1b1;
-  }
-  
+.button{
+  border: 1px solid #388190;
+  background-color: white;
+  border-radius: 30px;
+  margin: 3px;
+  min-width: 100px;
+  height: 50px;
+}
+
+.button:focus { 
+  background: rgba(56, 129, 144, 0.18);
+  box-sizing: border-box;
+  color: black;
+  font-weight: bold;
+  border: 1px solid #388190;
+}
+
+
+.red-input:focus {
+  background: yellow;
+  color: red;
+}
+
+.blue-input:focus {
+  background: yellow;
+  color: blue;
+}
+
+
 .sr-only {
   position:absolute;
   left:-10000px;
