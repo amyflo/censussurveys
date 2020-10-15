@@ -7,6 +7,72 @@
   display: inline-block;
 }
 
+.wrapper { 
+  margin: auto; 
+  text-align: center; 
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width: 90%;
+  padding-top: 5px;
+}
+
+::-webkit-scrollbar {
+  height: 4px;              /* height of horizontal scrollbar ← You're missing this */
+  width: 4px;               /* width of vertical scrollbar */
+}
+
+.scrolls { 
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 70px;
+white-space:nowrap
+} 
+
+
+.card {
+  flex: 0 0 auto;
+}
+
+.button{
+  border: 1px solid #388190;
+  background-color: white;
+  border-radius: 30px;
+  margin: 3px;
+  min-width: 100px;
+  height: 50px;
+}
+
+.button:focus { 
+  background: rgba(56, 129, 144, 0.18);
+  box-sizing: border-box;
+  color: black;
+  font-weight: bold;
+  border: 1px solid #388190;
+}
+
+
+.red-input:focus {
+  background: yellow;
+  color: red;
+}
+
+.blue-input:focus {
+  background: yellow;
+  color: blue;
+}
+
+
+.sr-only {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  }
+
 .wrapper {
   margin-top: 20px;
   position: relative;
@@ -14,7 +80,7 @@
   min-width: 100px;
 }
 
-.search {
+.quicksearch {
   border: 1px solid grey;
   border-radius: 5px;
   height: 25px;
@@ -25,26 +91,6 @@
   background-color: #f5f5f5;
 }
 
-.search-icon {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  width: 14px;
-}
-
-.clear-icon {
-  position: absolute;
-  top: 9px;
-  right: 8px;
-  width: 12px;
-  cursor: pointer;
-  visibility: hidden;
-}
-
-.search:hover, .search:focus {
-  border: 1px solid #009688;
-  background-color: white;
-}
 
 .filter{
   margin-top: 30px;
@@ -58,36 +104,6 @@
 body {
   font-family: Roboto, sans-serif;
 }
-
-.options{
-  display: block;
-  width: 90%;
-  margin-bottom: 2rem;
-}
-
-.option-set{
-  width: 100%;
-  font-size: 24px;
-  margin-left: 30px;
-}
-
-.item {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  width: 40%;
-  border-radius: 5px;
-  width: 200px;
-  height: 150px;
-  padding: 5px;
-  margin: 5px;
-  color: black;
-  float: left;
-}
-
-.item:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-label { margin-right: 5px; }
 
 h1{
   font-size: 36px;
@@ -111,46 +127,4 @@ h3{
 p {
   margin: 0;
   font-size: 12px;
-}
-
-
-.container {
-  margin: 0 auto;
-  height: 90vh;
-  display: flex;
-}
-
-.main-content {
-  margin-left: 10%;
-  margin-right: 10%;
-  width: 80%;
-  height: 90%;
-  transition: 1s ease;
-}
-
-.content-block{
-  align-items: center;
-}
-
-
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%; /* Could be more or less, depending on screen size */
 }
