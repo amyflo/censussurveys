@@ -8,276 +8,58 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<div class="header">
-  <img src="/assets/logo.jpg" width=10% height=10% alt="U.S. Census Bureau Logo">
-</div>
+  <div class="header">
+    <img src="/assets/logo.jpg" width=10% height=10% alt="U.S. Census Bureau Logo">
+  </div>
 
+  <div class="banner">
+    <h1>Find a Survey from the U.S. Census Bureau<h1>
+    <input class="quicksearch" placeholder="Search" type="text">
+  </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="//npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
-<script src="assets/uswds-2.9.0/js/uswds.min.js"></script>
+  <!--TOPICS-->
+  <h2>Topics</h2>
+  <div class="wrapper">
+    <div class="scrolls">
+      <div class="btn-group">
+        <button>
+          <input class="sr-only" value=".national" id="national" type="checkbox">
+          <label for="national">National</label>
+        </button>
 
-<section class="main-content">
+        <button>
+          <input class="sr-only" value=".county" id="county" type="checkbox">
+          <label for="county">County</label>
+        </button>
 
-<h1>Find a Survey from the U.S. Census Bureau</h1>
-
-<div class="wrapper">
-  <img class="search-icon" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU2Ljk2NiA1Ni45NjYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDU2Ljk2NiA1Ni45NjY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPHBhdGggZD0iTTU1LjE0Niw1MS44ODdMNDEuNTg4LDM3Ljc4NmMzLjQ4Ni00LjE0NCw1LjM5Ni05LjM1OCw1LjM5Ni0xNC43ODZjMC0xMi42ODItMTAuMzE4LTIzLTIzLTIzcy0yMywxMC4zMTgtMjMsMjMgIHMxMC4zMTgsMjMsMjMsMjNjNC43NjEsMCw5LjI5OC0xLjQzNiwxMy4xNzctNC4xNjJsMTMuNjYxLDE0LjIwOGMwLjU3MSwwLjU5MywxLjMzOSwwLjkyLDIuMTYyLDAuOTIgIGMwLjc3OSwwLDEuNTE4LTAuMjk3LDIuMDc5LTAuODM3QzU2LjI1NSw1NC45ODIsNTYuMjkzLDUzLjA4LDU1LjE0Niw1MS44ODd6IE0yMy45ODQsNmM5LjM3NCwwLDE3LDcuNjI2LDE3LDE3cy03LjYyNiwxNy0xNywxNyAgcy0xNy03LjYyNi0xNy0xN1MxNC42MSw2LDIzLjk4NCw2eiIgZmlsbD0iIzAwMDAwMCIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
-  <input placeholder="Find Surveys by Name, Code, and More"
-    type="text" 
-    id="quicksearch"
-    class="search">
-  <img class="clear-icon" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxLjk3NiA1MS45NzYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxLjk3NiA1MS45NzY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPGc+Cgk8cGF0aCBkPSJNNDQuMzczLDcuNjAzYy0xMC4xMzctMTAuMTM3LTI2LjYzMi0xMC4xMzgtMzYuNzcsMGMtMTAuMTM4LDEwLjEzOC0xMC4xMzcsMjYuNjMyLDAsMzYuNzdzMjYuNjMyLDEwLjEzOCwzNi43NywwICAgQzU0LjUxLDM0LjIzNSw1NC41MSwxNy43NCw0NC4zNzMsNy42MDN6IE0zNi4yNDEsMzYuMjQxYy0wLjc4MSwwLjc4MS0yLjA0NywwLjc4MS0yLjgyOCwwbC03LjQyNS03LjQyNWwtNy43NzgsNy43NzggICBjLTAuNzgxLDAuNzgxLTIuMDQ3LDAuNzgxLTIuODI4LDBjLTAuNzgxLTAuNzgxLTAuNzgxLTIuMDQ3LDAtMi44MjhsNy43NzgtNy43NzhsLTcuNDI1LTcuNDI1Yy0wLjc4MS0wLjc4MS0wLjc4MS0yLjA0OCwwLTIuODI4ICAgYzAuNzgxLTAuNzgxLDIuMDQ3LTAuNzgxLDIuODI4LDBsNy40MjUsNy40MjVsNy4wNzEtNy4wNzFjMC43ODEtMC43ODEsMi4wNDctMC43ODEsMi44MjgsMGMwLjc4MSwwLjc4MSwwLjc4MSwyLjA0NywwLDIuODI4ICAgbC03LjA3MSw3LjA3MWw3LjQyNSw3LjQyNUMzNy4wMjIsMzQuMTk0LDM3LjAyMiwzNS40NiwzNi4yNDEsMzYuMjQxeiIgZmlsbD0iIzAwMDAwMCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
-</div>
-
-<div class="filter" id="filter">
-  <section class="category">
-    <h3>Frequency</h3>
-    <p class="input">
-      <label><input type="checkbox" value="monthly" /> Month</label>
-      <label><input type="checkbox" value="quarterly" /> Quarterly</label>
-      <label><input type="checkbox" value="annual" /> Annual</label>
-      <label><input type="checkbox" value="decennial" />Decennial</label>
-      <label><input type="checkbox" value="other-freq" />Other</label>
-    </p>
-  </section>
-  
-  <section class="category">
-    <h3>Geography</h3>
-    <p class="input">
-      <label><input type="checkbox" value="national" />National</label>
-      <label><input type="checkbox" value="state" />State</label>
-      <label><input type="checkbox" value="metro" />Metro Area</label>
-      <label><input type="checkbox" value="county" />County</label>
-      <label><input type="checkbox" value="place" />Place</label>
-      <label><input type="checkbox" value="zip" />Zip Code</label>
-      <label><input type="checkbox" value="zcta" />ZCTA</label>
-      <label><input type="checkbox" value="block-group" />Block Group</label>
-      <label><input type="checkbox" value="tract" />Tract</label>
-      <label><input type="checkbox" value="block" />Block</label>
-      <label><input type="checkbox" value="economic" />Economic Place</label>
-      <label><input type="checkbox" value="other-geo" />Other</label>
-    </p>
-  </section>
-</div>
-  
-  <div id="container">
-    <!--Annual Business Survey-->
-    <div class="item annual national state metro county place" >
-      <h2>Annual Business Survey (ABS)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Annual</p>
-      <h3>Geography</h3>
-      <p>National, State, Metro Area, County, Place</p>
-    </div>
-  
-    <!--American Community Survey-->
-    <div class="item annual national state metro county place zcta block-group">
-      <h2>American Community Survey (ACS)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Annual</p>
-      <h3>Geography</h3>
-      <p>National, State, Metro Area, County, Place, ZCTA, Tract, Block Group</p>
-    </div>
-  
-    <!--Annual Survey of Manufactures-->
-    <div class="item annual national state metro">
-      <h2>Annual Survey of Manufactures (ASM)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Annual</p>
-      <h3>Geography</h3>
-      <p>National, State, Metro Area</p>
-    </div>
-  
-    <!--Business Dynamics Statistics-->
-    <div class="item annual national state metro">
-      <h2>Business Dynamics Statistics (BDS)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Annual</p>
-      <h3>Geography</h3>
-      <p>National, State, Metro Area</p>
-    </div>
-  
-     <!--Building Permits-->
-     <div class="item monthly national state metro county place">
-      <h2>Building Permits (BPS)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Monthly</p>
-      <h3>Geography</h3>
-      <p>National, State, Metro Area, County, Place</p>
-    </div>
-  
-    <!--County Business Patterns-->
-    <div class="item annual national state metro county zip">
-      <h2>County Business Patterns (CBP)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Annual</p>
-      <h3>Geography</h3>
-      <p>National, State, Metro Area, County, Zip Code</p>
-    </div>
-  
-    <!--Commodity Flow Survey-->
-    <div class="item other-freq national state other-geo">
-      <h2>Commodity Flow Survey (CFS)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Other</p>
-      <h3>Geography</h3>
-      <p>National, State, Other</p>
-    </div>
-  
-    <!--Decennial Census-->
-    <div class="item decennial national state county place zcta tract block-group block other-geo">
-      <h2>Decennial Census (DC)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Other</p>
-      <h3>Geography</h3>
-      <p>National, State, County, Place, ZCTA, Tract, Block Group, Block, Other</p>
-    </div>
-  
-    <!--e-Commerce Statistics-->
-    <div class="item annual national">
-      <h2>e-Commerce Statistics (E-STAT)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Annual</p>
-      <h3>Geography</h3>
-      <p>National</p>
-    </div>
-  
-    <!--Economic Census-->
-    <div class="item other-freq national state metro county economic place">
-      <h2>Economic Census (EC)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Annual</p>
-      <h3>Geography</h3>
-      <p>National, State, Metro Area, County, Economic Place, Place</p>
-    </div>
-  
-    <!--U.S. International Trade in Goods and Services-->
-    <div class="item monthly national state metro other-geo">
-      <h2>U.S. International Trade in Goods and Services (FT-900)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Monthly</p>
-      <h3>Geography</h3>
-      <p>National, State, Metro Area, Other</p>
-    </div>
-  
-    <!--Job-to-Job Flows-->
-    <div class="item quarterly national state metro">
-      <h2>Job-to-Job Flows (J2J)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Quarterly</p>
-      <h3>Geography</h3>
-      <p>National, State, Metro Area</p>
-    </div>
-  
-    <!--LEHD Origin-Destination Employment Statistics-->
-    <div class="item annual national state metro county place zcta tract block-group block other-geo">
-      <h2>LEHD Origin-Destination Employment Statistics (LODES)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Annual</p>
-      <h3>Geography</h3>
-      <p>National, State, Metro Area, County, Place, ZCTA, Tract, Block Group, Block, Other</p>
-    </div>
-  
-    <!--Manufacturers' Shipments, Inventories, and Orders-->
-    <div class="item monthly national">
-      <h2>Manufacturers' Shipments, Inventories, and Orders (M3)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Monthly</p>
-      <h3>Geography</h3>
-      <p>National</p>
-    </div>
-  
-    <!--Monthly Retail Trade Survey-->
-    <div class="item monthly national">
-      <h2>Monthly Retail Trade Survey (MARTS)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Monthly</p>
-      <h3>Geography</h3>
-      <p>National</p>
-    </div>
-  
-    <!--Monthly Wholesale Trade Survey-->
-    <div class="item monthly national">
-      <h2>Monthly Wholesale Trade Survey (MWTS)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Monthly</p>
-      <h3>Geography</h3>
-      <p>National</p>
-    </div>
-  
-    <!--Nonemployer Statistics-->
-    <div class="item annual national state metro county">
-      <h2>Nonemployer Statistics (NES)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Annual</p>
-      <h3>Geography</h3>
-      <p>National, State, Metro Area, County</p>
-    </div>
-  
-    <!--New Residential Construction-->
-    <div class="item monthly national other-geo">
-      <h2>New Residential Construction (NRESCON)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Monthly</p>
-      <h3>Geography</h3>
-      <p>National, Other</p>
-    </div>
-  
-    <!--New Residential Sales-->
-    <div class="item monthly national other-geo">
-      <h2>New Residential Construction (NRESSALE)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Monthly</p>
-      <h3>Geography</h3>
-      <p>National, Other</p>
-    </div>
-  
-    <!--Quarterly Financial Report-->
-    <div class="item quarterly national">
-      <h2>Quarterly Financial Report (QFR)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Quarterly</p>
-      <h3>Geography</h3>
-      <p>National</p>
-    </div>
-  
-    <!--Quarterly Workforce Indicators-->
-    <div class="item quarterly national state metro county other-geo">
-      <h2>Quarterly Workforce Indicators (QWI)</h2>
-      <hr>
-      <h3>Frequency</h3>
-      <p>Quarterly</p>
-      <h3>Geography</h3>
-      <p>National, State, Metro Area, County, Other</p>
+        <button>
+          <input class="sr-only" value=".state" id="state" type="checkbox">
+          <label for="state">State</label>
+        </button>
+        
+      </div>
     </div>
   </div>
-</section>
+  
+<div class="all-surveys">
+  <div class="survey annual national">
+    <p>One</p>
+  </div>
+  <div class="survey national geography">
+    <p>Two</p>
+  </div>
+  <div class="survey geography">
+    <p>Three</p>
+  </div>
+</div>
 
+
+<!--SCRIPTS-->
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script src='https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js'></script>
-<script  src="./script.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+<script src="//npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+<script src="./script.js"></script>
+<!--SCRIPTS-->
 </body>
 </html>
