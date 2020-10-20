@@ -1,5 +1,4 @@
 /*jshint browser:true, undef: true, unused: true, jquery: true */
-
 // store filter per group
 var filters = {};
 
