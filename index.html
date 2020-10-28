@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="style.css"/>
+  <title>Find a Survey from the U.S. Census Bureau</title>
+</head>
+<body>
+  
+  <div class="header">
+    <img src="/assets/logo.jpg" width=10% height=10% alt="U.S. Census Bureau Logo">
+  </div>
+
+  <div class="banner">
+    <h1>U.S. Census Bureau Survey Explorer<h1>
+    <input class="quicksearch" placeholder="Search" type="text">
+  </div>
+
+  <!--TOPICS-->
+  <h2>Topics</h2>
+  <div class="wrapper">
+    <div class="scrolls">
+      <div class="btn-group">
+        <button>
+          <input class="sr-only" value=".national" id="national" type="checkbox">
+          <label for="national">national</label>
+        </button>
+
+        <button>
+          <input class="sr-only" value=".county" id="county" type="checkbox">
+          <label for="county">county</label>
+        </button>
+
+        <button>
+          <input class="sr-only" value=".state" id="state" type="checkbox">
+          <label for="state">state</label>
+        </button>
+        
+      </div>
+    </div>
+  </div>
+
+  <!--CARDS-->
+  <div class="all-surveys">
+    <div class="survey">
+      <p> national</p>
+    </div>
+  </div>
+  <button class="accordion">Section 1</button>
+  <div class="panel">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+
+  <button class="accordion">Section 2</button>
+  <div class="panel">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+
+  <button class="accordion">Section 3</button>
+  <div class="panel">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+
+<!--SCRIPTS-->
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+<script src="assets/script.js"></script>
+<!--SCRIPTS-->
+</body>
+</html>
