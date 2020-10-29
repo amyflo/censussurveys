@@ -48,6 +48,7 @@ var frequencies = [
   "Monthly",
   "Monthly",
   "Quarterly",
+  "Quarterly",
   "Quarterly"
 ];
 
