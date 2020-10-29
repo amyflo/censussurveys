@@ -12,31 +12,41 @@
     <img src="/assets/logo.jpg" width=10% height=10% alt="U.S. Census Bureau Logo">
   </div>
 
-  <div class="banner">
-    <h1>U.S. Census Bureau Survey Explorer<h1>
-    <input class="quicksearch" placeholder="Search" type="text">
+  <h1>U.S. Census Bureau Survey Explorer</h1>
+  
+  <div class="wrapper">
+    <input class="quicksearch" placeholder="Search by survey name, code." type="text">
   </div>
-
-  <!--TOPICS-->
-  <h2>Topics</h2>
+  
+  <!--GEOGRAPHIES-->
   <div class="wrapper">
     <div class="scrolls">
-      <div class="btn-group">
-        <button>
-          <input value=".National" id="National" type="checkbox">
-          <label for="National">National</label>
-        </button>
-
-        <button>
-          <input value=".County" id="County" type="checkbox">
-          <label for="County">County</label>
-        </button>
-
-        <button>
-          <input value=".State" id="State" type="checkbox">
-          <label for="State">State</label>
-        </button>
-        
+      <div class="frequencies">
+        <div id="ck-button">
+          <label>
+             <input class=sr-only type="checkbox" value=".Monthly"><span>Monthly</span>
+          </label>
+       </div>
+       <div id="ck-button">
+          <label>
+             <input class=sr-only type="checkbox" value=".Quarterly"><span>Quarterly</span>
+          </label>
+       </div>
+        <div id="ck-button">
+          <label>
+            <input class=sr-only type="checkbox" value=".Annual"><span>Annual</span>
+          </label>
+        </div>
+        <div id="ck-button">
+          <label>
+             <input class=sr-only type="checkbox" value=".Decennial"><span>Decennial</span>
+          </label>
+       </div>
+       <div id="ck-button">
+          <label>
+             <input class=sr-only type="checkbox" value=".Other"><span>Other</span>
+          </label>
+       </div>
       </div>
     </div>
   </div>
@@ -46,7 +56,6 @@
 
 <!--SCRIPTS-->
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-<script src='https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js'></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="//npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 <script src="assets/script.js"></script>
