@@ -1,6 +1,5 @@
 var grid=$(".container");
 var filter=$(".btn-group input");
-var filterfreq = $('.frequencies input');
 var search=$(".quicksearch");
 var qsRegex;
 var buttonFilter;
@@ -166,7 +165,8 @@ function createItems() {
     var $item = $("<div />", {
       "class": "card " + freq + " " + geo
     });
-    $item.append("<div class=" + cardPadding + "><h3>" + name + "</h3>" + 
+    $item.append("<div class=" + cardPadding + "><h3>" + name + "</h3>" + '<hr>' +
+      '<p>'+ freq + '<br>' + geo + '</p><br>' +
       "<a href=" + link + " class=" + button + ">Explore</a></div>");
     $items = $items ? $items.add( $item ) : $item;
   }
