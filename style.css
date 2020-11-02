@@ -112,8 +112,9 @@ h2{
 }
 
 h3{
-  font-size: 18px;
-  font-weight: 300;
+  font-size: 16px;
+  font-weight: 400;
+  color: #205493
 }
 
 p {
@@ -121,22 +122,26 @@ p {
   font-size: 16px;
 }
 
-.button {
-  background-color: #205493; /* Green */
-  border-radius: 5px;
-  color: white;
+.button { 
+  border-radius: 10px;
+  color:#205493;
+  border-style: solid;
+  border-width: 2px;
   width: 80%;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  font-weight: 400;
   margin: 4px 2px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .button:hover {
-  background-color: #112E50;
+  background-color: #205493;
+  color: white;
 }
 
 #ck-button {
@@ -175,5 +180,4 @@ p {
 #ck-button input:checked + span {
   background-color: #112E50;
   color:#fff;
-  border:
 }

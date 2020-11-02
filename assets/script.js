@@ -53,27 +53,27 @@ var frequencies = [
 ];
 
 var geographies = [
-  "National State Metro County Place",
-  "National State Metro County Place ZCTA Tract BlockGroup OtherGeo",
-  "National State",
-  "National State Metro",
-  "National State Metro County Place OtherGeo",
-  "National State Metro County Zip OtherGeo",
-  "National State OtherGeo",
-  "National State County Place ZCTA Tract BlockGroup Block, OtherGeo",
+  "National, State, Metro, County, Place",
+  "National, State, Metro, County, Place, ZCTA, Tract, BlockGroup, OtherGeo",
+  "National, State",
+  "National, State, Metro",
+  "National, State, Metro, County, Place, OtherGeo",
+  "National, State, Metro, County, Zip, OtherGeo",
+  "National, State, OtherGeo",
+  "National, State, County, Place, ZCTA, Tract, BlockGroup, Block, OtherGeo",
   "National",
-  "National State Metro, County, Economic, Place",
-  "National State Metro OtherGeo",
-  "National State Metro",
-  "National State Metro County Place ZCTA Tract BlockGroup Block OtherGeo",
+  "National, State, Metro, County, Economic, Place",
+  "National, State, Metro, OtherGeo",
+  "National, State, Metro",
+  "National, State, Metro, County, Place, ZCTA, Tract, BlockGroup, Block, OtherGeo",
   "National",
   "National",
   "National",
-  "National State, Metro, County",
-  "National OtherGeo",
-  "National OtherGeo",
+  "National, State, Metro, County",
+  "National, OtherGeo",
+  "National, OtherGeo",
   "National",
-  "National State Metro County OtherGeo"
+  "National, State, Metro, County, OtherGeo",
 ];
 
 var links = [
@@ -162,12 +162,13 @@ function createItems() {
     var name = names[i];
     var freq = frequencies[i];
     var link = links[i];
-    var geo = geographies[i];
+    var geo = geographies[i].replace(/,/g, '');
+    var geoList = geographies[i];
     var $item = $("<div />", {
       "class": "card " + freq + " " + geo
     });
-    $item.append("<div class=" + cardPadding + "><h3>" + name + "</h3>" + '<hr>' +
-      '<p>'+ freq + '<br>' + geo + '</p><br>' +
+    $item.append("<div class=" + cardPadding + "><h3>" + name + "</h3>" +
+      '<p>Frequency: '+ freq + '<p>Geographies: ' + geoList + '</p><br>' +
       "<a href=" + link + " class=" + button + ">Explore</a></div>");
     $items = $items ? $items.add( $item ) : $item;
   }
