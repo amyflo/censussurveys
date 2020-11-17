@@ -199,3 +199,9 @@ function createItems() {
   }
   $items.appendTo( $("#container") );
 }
+
+
+var card = document.querySelector('.card');
+card.addEventListener( 'click', function() {
+  card.classList.toggle('is-flipped');
+});

@@ -4,34 +4,43 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <link rel="stylesheet" href="style.css"/>
-  <title>Find a Survey from the U.S. Census Bureau</title>
+  <title>U.S. Census Bureau Survey Explorer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  
+
   <div class="header">
-    <img src="https://github.com/amyflo/censussurveys/blob/master/assets/logo.jpg?raw=true" width="10%" height=10% alt="U.S. Census Bureau Logo">
+    <img src="https://github.com/amyflo/censussurveys/blob/master/assets/logo.jpg?raw=true" width="100px" alt="U.S. Census Bureau">
   </div>
 
-  <h1 style=>U.S. Census Bureau Survey Explorer</h1>
-  
+  <h1 style="text-align: center;">U.S. Census Bureau Survey Explorer</h1>
   <div class="wrapper">
     <input class="quicksearch" placeholder="Search by survey name, frequency, or geographies" type="text">
   </div>
   
-  <!--FREQUENCIES-->
-  <div class="wrapper ">
+  <div class="scene scene--card">
+    <div class="card">
+      <div class="card__face card__face--front">front</div>
+      <div class="card__face card__face--back">back</div>
+    </div>
+  </div>
+  <p>Click card to flip.</p>
+
+
+  <div class="filters">
+    <!--FREQUENCIES-->
     <div class="scrolls">
       <div class="btn-group">
         <div id="ck-button">
           <label>
-             <input class="sr-only"  type="checkbox" value=".Monthly"><span>Monthly</span>
+              <input class="sr-only"  type="checkbox" value=".Monthly"><span>Monthly</span>
           </label>
-       </div>
-       <div id="ck-button">
+        </div>
+        <div id="ck-button">
           <label>
-             <input class="sr-only" type="checkbox" value=".Quarterly"><span>Quarterly</span>
+              <input class="sr-only" type="checkbox" value=".Quarterly"><span>Quarterly</span>
           </label>
-       </div>
+        </div>
         <div id="ck-button">
           <label>
             <input class="sr-only" type="checkbox" value=".Annual"><span>Annual</span>
@@ -39,30 +48,27 @@
         </div>
         <div id="ck-button">
           <label>
-             <input class="sr-only" type="checkbox" value=".Decennial"><span>Decennial</span>
-          </label>
-       </div>
-       <div id="ck-button">
-          <label>
-             <input class="sr-only" type="checkbox" value=".Other"><span>Other</span>
-          </label>
-       </div>
-      </div>
-    </div>
-  </div>
-
-  <!--GEOGRAPHIES-->
-  <div class="wrapper">
-    <div class="scrolls">
-      <div class="btn-group">
-        <div id="ck-button">
-          <label>
-             <input class="sr-only"  type="checkbox" value=".National"><span>National</span>
+              <input class="sr-only" type="checkbox" value=".Decennial"><span>Decennial</span>
           </label>
         </div>
         <div id="ck-button">
           <label>
-             <input class="sr-only" type="checkbox" value=".State"><span>State</span>
+              <input class="sr-only" type="checkbox" value=".Other"><span>Other</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <!--GEOGRAPHIES-->
+    <div class="scrolls">
+      <div class="btn-group">
+        <div id="ck-button">
+          <label>
+              <input class="sr-only"  type="checkbox" value=".National"><span>National</span>
+          </label>
+        </div>
+        <div id="ck-button">
+          <label>
+              <input class="sr-only" type="checkbox" value=".State"><span>State</span>
           </label>
         </div>
         <div id="ck-button">
@@ -72,12 +78,12 @@
         </div>
         <div id="ck-button">
           <label>
-             <input class="sr-only" type="checkbox" value=".County"><span>County</span>
+              <input class="sr-only" type="checkbox" value=".County"><span>County</span>
           </label>
         </div>
         <div id="ck-button">
           <label>
-             <input class="sr-only" type="checkbox" value=".Place"><span>Place</span>
+              <input class="sr-only" type="checkbox" value=".Place"><span>Place</span>
           </label>
         </div>
         <div id="ck-button">
@@ -113,12 +119,19 @@
       </div>
     </div>
   </div>
-  <hr>
 
   <div class="wrapper">
   <div class="container" id="container">
   </div>
 </div>
+
+<div class="scene scene--card">
+  <div class="carded">
+    <div class="card__face card__face--front">front</div>
+    <div class="card__face card__face--back">back</div>
+  </div>
+</div>
+<p>Click card to flip.</p>
 
 <!--SCRIPTS-->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
