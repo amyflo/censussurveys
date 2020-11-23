@@ -1,15 +1,28 @@
-.header {
-  padding: 20px;
-  text-align: center;
-  background-color: #112E50;
+body{
+  margin: 0;
 }
+
+.header {
+  background-color: #112E50;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Hero */
+.hero{
+  background-image: linear-gradient(to right, #337484, #182E4E);
+  padding: 50px;
+  color: white;
+}
+
 
 .flip-card {
   background-color: transparent;
-  width: 95%;
-  height: 300px;
+  width: 90%;
+  height: 350px;
+  max-height: fit-content;
   perspective: 1000px;
-  padding: 10px;
+  padding: 20px;
 }
 
 .flip-card-inner {
@@ -62,15 +75,10 @@
   width: 90%;
 }
 
-::-webkit-scrollbar {
-  height: 4px;              /* height of horizontal scrollbar ← You're missing this */
-  width: 4px;               /* width of vertical scrollbar */
-}
-
 .scrolls { 
   overflow-x: scroll;
   overflow-y: hidden;
-  height: 70px;
+  height: 50px;
   white-space:nowrap
 } 
 
@@ -93,9 +101,21 @@
   width: 90%;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1400px) {
+  .card {
+    width: 50%;
+  }
+  .flip-card{
+    height: 325px;
+  }
+}
+
+@media screen and (max-width: 800px) {
   .card {
     width: 100%;
+  }
+  .flip-card{
+    height: 300px;
   }
 }
 
@@ -117,10 +137,12 @@
   outline: 0;
   size: 12px;
   background-color: #f5f5f5;
+  transition: 0.3s;
 }
 
 .quicksearch:hover{
   border: 4px solid #7ECAD3;
+  transition: 0.3s;
 }
 
 /* Text Styles */
@@ -130,15 +152,15 @@ body {
 }
 
 h1{
-  font-size: 24px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
+  margin: .67em 0;
+  font-size: 2em;
+  font-weight: 300;
+  line-height: normal;
   text-align: center;
 }
 
 h2{
-  font-size: 18px;
+  font-size: 1.5em;
   font-weight: 500;
   margin: 20px;
 }
@@ -167,7 +189,6 @@ p {
   display: inline-block;
   font-size: 16px;
   font-weight: 400;
-  margin: 4px 2px;
   cursor: pointer;
   transition: 0.3s;
   bottom: 0px;
@@ -180,7 +201,7 @@ p {
 }
 
 #ck-button {
-  background-color: #205493; /* Green */
+  background:#4093A5;
   border-radius: 5px;
   color: white;
   text-align: center;
@@ -201,6 +222,7 @@ p {
   padding: 10px 20px;
   display:block;
   border-radius:4px;
+  
 }
 
 #ck-button label input {
@@ -209,10 +231,14 @@ p {
 }
 
 #ck-button input:hover + span {
-  background-color:#205493;
+  background-color:#337484;
+  font-weight: 600;
 }
 
 #ck-button input:checked + span {
-  background-color: #112E50;
+  background-color:#182E4E;
+  transition: 0.3s;
   color:#fff;
+  font-weight: 600;
+  transition: 0.3s;
 }
