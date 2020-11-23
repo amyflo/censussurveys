@@ -116,8 +116,8 @@ var descriptions = [
   "The Manufacturers’ Shipments, Inventories, and Orders (M3) survey provides broad-based, monthly statistical data on economic conditions in the domestic manufacturing sector. The survey measures current industrial activity and provides an indication of future business trends.",
   "The Monthly Retail Trade Survey (MARTS) provides current estimates of sales at retail and food services stores and inventories held by retail stores. The United States Code, Title 13, authorizes this survey and provides for voluntary responses.",
   "The Wholesale Trade sector comprises establishments engaged in wholesaling merchandise, generally without transformation, and rendering services incidental to the sale of merchandise. The merchandise described in this sector includes the outputs of agriculture, mining, manufacturing, and certain information industries, such as publishing.",
-  "This survey provides national and regional data on the number of new housing units authorized by building permits; authorized, but not started; started; under construction; and completed. The data are for new, privately-owned housing units, excluding HUD-code manufactured (mobile) homes. The data are from the Building Permits Survey, and from the Survey of Construction (SOC), which is partially funded by the Department of Housing and Urban Development (HUD).",
-  "This survey provides national and regional data on the number of new single-family houses sold and for sale. It also provides national data on median and average prices, the number of houses sold and for sale by stage of construction, and other statistics. The data are from the Survey of Construction (SOC), which is partially funded by the Department of Housing and Urban Development (HUD).",
+  "This survey provides national and regional data on the number of new housing units authorized by building permits; authorized, but not started; started; under construction; and completed. The data are for new, privately-owned housing units, excluding HUD-code manufactured (mobile) homes.",
+  "This survey provides national and regional data on the number of new single-family houses sold and for sale. It also provides national data on median and average prices, the number of houses sold and for sale by stage of construction, and other statistics.",
   "Nonemployer Statistics (NES) is an annual series that provides subnational economic data for businesses that have no paid employees and are subject to federal income tax. The data consist of the number of businesses and total receipts by industry. Most nonemployers are self-employed individuals operating unincorporated businesses (known as sole proprietorships), which may or may not be the owner's principal source of income.",
   "The majority of all business establishments in the United States are nonemployers, yet these firms average less than 4 percent of all sales and receipts nationally. Due to their small economic impact, these firms are excluded from most other Census Bureau business statistics (the primary exception being the Survey of Business Owners). The NES series is the primary resource available to study the scope and activities of nonemployers at a detailed geographic level.",
   "The Quarterly Workforce Indicators (QWI) provide local labor market statistics by industry, worker demographics, employer age and size. Unlike statistics tabulated from firm or person-level data, the QWI source data are unique job-level data that link workers to their employers. Because of this link, labor market data in the QWI is available by worker age, sex, educational attainment, and race/ethnicity.",
@@ -172,6 +172,7 @@ filter.change(function(){
 // create items
 function createItems() {
   var button = "button";
+  var center = "center";
   var cardPadding = "cardPadding";
 
   var $items;
@@ -187,8 +188,8 @@ function createItems() {
     });
     $item.append("<div class=" + "flip-card" + "><div class=" + "flip-card-inner" + "><div class=" + 
     "flip-card-front" + "><h2>" + name + "</h2>" +
-      '<h3>Frequency</h3>' + '<p>'+ freq + '</p>' + '<h3>Geographies</h3>' + '<p>' + geoList + '</p></div>' + 
-      "<div class=" + "flip-card-back" + "><h2>Description</h2>" + "<p>" + descriptions[i] + "</p>" + "<a href=" + link + " class=" + button + ">Explore</a>" + "</div></div></div>");
+      '<h3>Frequency</h3>' + "<p class=" + center + ">"  + freq + '</p>' + '<h3>Geographies</h3>' + "<p class=" + center + ">"  + geoList + '</p></div>' + 
+      "<div class=" + "flip-card-back" + "><h2>Description</h2>" + "<div class=" + "flip-card-text" + "><p>" + descriptions[i] + "</p>" + "<a href=" + link + " class=" + button + ">Explore</a>" + "</div></div></div>");
     $items = $items ? $items.add( $item ) : $item;
   }
   $items.appendTo( $("#container") );
