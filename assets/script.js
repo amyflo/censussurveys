@@ -173,7 +173,6 @@ filter.change(function(){
 function createItems() {
   var button = "button";
   var center = "center";
-  var cardPadding = "cardPadding";
 
   var $items;
 
