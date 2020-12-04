@@ -1,4 +1,4 @@
-var grid=$("#grid");
+var grid=$(".container");
 var filter=$(".btn-group input");
 var search=$(".quicksearch");
 var qsRegex;
@@ -53,27 +53,27 @@ var frequencies = [
 ];
 
 var geographies = [
-  "National, State, Metro Area, County, Place",
-  "National, State, Metro Area, County, Place, ZCTA, Tract, Block Group, Other",
+  "National, State, Metro, County, Place",
+  "National, State, Metro, County, Place, ZCTA, Tract, BlockGroup, OtherGeo",
   "National, State",
-  "National, State, Metro Area",
-  "National, State, Metro Area, County, Place, Other",
-  "National, State, Metro Area, County, Zip Code, Other",
-  "National, State, Other",
-  "National, State, County, Place, ZCTA, Tract, Block Group, Block, Other",
+  "National, State, Metro",
+  "National, State, Metro, County, Place, OtherGeo",
+  "National, State, Metro, County, Zip, OtherGeo",
+  "National, State, OtherGeo",
+  "National, State, County, Place, ZCTA, Tract, BlockGroup, Block, OtherGeo",
   "National",
-  "National, State, Metro Area, County, Economic, Place",
-  "National, State, Metro Area, Other",
-  "National, State, Metro Area",
-  "National, State, Metro Area, County, Place, ZCTA, Tract, Block Group, Block, Other",
+  "National, State, Metro, County, Economic, Place",
+  "National, State, Metro, OtherGeo",
+  "National, State, Metro",
+  "National, State, Metro, County, Place, ZCTA, Tract, BlockGroup, Block, OtherGeo",
   "National",
   "National",
   "National",
-  "National, State, Metro Area, County",
-  "National, Other",
-  "National, Other",
+  "National, State, Metro, County",
+  "National, OtherGeo",
+  "National, OtherGeo",
   "National",
-  "National, State, Metro Area, County, Other",
+  "National, State, Metro, County, OtherGeo",
 ];
 
 var links = [
@@ -104,14 +104,14 @@ var descriptions = [
   "The American Community Survey (ACS) is an ongoing survey that provides vital information on a yearly basis about our nation and its people. The survey samples approximately 3.5 million addresses each year. Information from the survey generates data that help determine how more than $675 billion in federal and state funds are distributed each year.",
   "The Annual Business Survey (ABS) provides information on selected economic and demographic characteristics for businesses and business owners by sex, ethnicity, race, and veteran status. Further, the survey measures research and development (for microbusinesses), new business topics such as innovation and technology, as well as other business characteristics.",
   "The Annual Survey of Manufactures (ASM) provides sample estimates of statistics for all manufacturing establishments with one or more paid employee.",
-  "The Building Permits Survey measures the number of new housing units authorized by building permits. Data are available monthly, year- to- date, and annually at the national, state, selected metro areapolitan area, county and place levels. The data are from the Building Permits Survey.",
+  "The Building Permits Survey measures the number of new housing units authorized by building permits. Data are available monthly, year- to- date, and annually at the national, state, selected metropolitan area, county and place levels. The data are from the Building Permits Survey.",
   "Business Dynamics Statistics (BDS) provides annual measures of business dynamics (such as job creation and destruction, establishment births and deaths, and firm startups and shutdowns) for the economy and aggregated by establishment and firm characteristics.",
   "Commodity Flow Survey (CFS) data are used by policy makers and transportation planners in various federal, state, and local agencies for assessing the demand for transportation facilities and services, energy use, and safety risk and environmental concerns.",
   "County Business Patterns (CBP) is an annual series that provides subnational economic data by industry. This series includes the number of establishments, employment during the week of March 12, first quarter payroll, and annual payroll.",
   "The U.S. census counts each resident of the country, where they live on April 1, every ten years ending in zero. The Constitution mandates the enumeration to determine how to apportion the House of Representatives among the states.",
   "Measuring the Electronic Economy. E-commerce statistics on shipments, sales and revenues from key sectors of the economy: manufacturing, wholesale, services and retail. These statistics are available for the nation dating back to 1998. The Census Bureau's e-commerce report measures the value of goods and services sold online whether over open networks such as the Internet, or over proprietary networks running systems such as Electronic Data Interchange (EDI).",
   "The U.S. Census Bureau collects extensive statistics about businesses that are essential to understanding the American economy.  This official count, better known as the Economic Census, serves as the foundation for the measurement of U.S. businesses and their economic impact. Conducted every 5 years, nearly 4 million businesses, large, medium, and small, covering most industries and all geographic areas of the United States will receive surveys tailored to their primary business activity.",
-  "Job-to-Job Flows (J2J) is a set of statistics on job mobility in the United States. J2J include statistics on: (1) the job-to-job transition rate, (2) hires and separations to and from employment, (3) earnings changes due to job change, and (4) characteristics of origin and destination jobs for job-to-job transitions. These statistics are available at the national, state, and metro areapolitan area levels and by worker and firm characteristics.",
+  "Job-to-Job Flows (J2J) is a set of statistics on job mobility in the United States. J2J include statistics on: (1) the job-to-job transition rate, (2) hires and separations to and from employment, (3) earnings changes due to job change, and (4) characteristics of origin and destination jobs for job-to-job transitions. These statistics are available at the national, state, and metropolitan area levels and by worker and firm characteristics.",
   "LEHD Origin-Destination Employment Statistics (LODES) used by the tool, OnTheMap, provide details about where workers are employed, where they live, and the relationships between the two.",
   "The Manufacturers’ Shipments, Inventories, and Orders (M3) survey provides broad-based, monthly statistical data on economic conditions in the domestic manufacturing sector. The survey measures current industrial activity and provides an indication of future business trends.",
   "The Monthly Retail Trade Survey (MARTS) provides current estimates of sales at retail and food services stores and inventories held by retail stores. The United States Code, Title 13, authorizes this survey and provides for voluntary responses.",
@@ -126,41 +126,9 @@ var descriptions = [
 
 createItems();
 
-
-Isotope.Item.prototype._create = function() {
-  // assign id, used for original-order sorting
-  this.id = this.layout.itemGUID++;
-  // transition objects
-  this._transn = {
-    ingProperties: {},
-    clean: {},
-    onEnd: {}
-  };
-  this.sortData = {};
-};
-
-Isotope.Item.prototype.layoutPosition = function() {
-  this.emitEvent( 'layout', [ this ] );
-};
-
-Isotope.prototype.arrange = function( opts ) {
-  // set any options pass
-  this.option( opts );
-  this._getIsInstant();
-  // just filter
-  this.filteredItems = this._filter( this.items );
-  // flag for initalized
-  this._isLayoutInited = true;
-};
-
-// layout mode that does not position items
-Isotope.LayoutMode.create('none');
-
 // filter items 
 grid.isotope({
   itemSelector: ".card",
-  layoutMode: 'none',
-  stagger: 0,
   filter: function() {
     // console.log(searchResult);
     var searchResult = qsRegex ? $(this).text().match( qsRegex ) : true;
@@ -212,38 +180,16 @@ function createItems() {
     var name = names[i];
     var freq = frequencies[i];
     var link = links[i];
-    var text = descriptions[i];
-    var geoText = geographies[i];
-    var geo = geoText;
-    geo = geo.replace("Block Group", "BlockGroup");
-    geo = geo.replace("Economic Place", "Economic");
-    geo = geo.replace("Metro Area", "Metro");
-    geo = geo.replace("Census Tract", "Census");
-    geo = geo.replace("Zip Code", "Zip");
-    geo = geo.replace("Other", "OtherGeo");
-    geo = geo.replace(/,/g, '');
-
+    var geo = geographies[i].replace(/,/g, '');
+    var geoList = geographies[i];
     var $item = $("<div />", {
       "class": "card " + freq + " " + geo
     });
-    $item.append("<h5 class='card-header'>" + freq + "</h5>" + 
-    "<div class='card-body'><h5 class=" + "card-title" +">" + 
-    name + "</h5><h6 class='card-subtitle mb-2 text-muted'>Geographies: " + 
-    geoText + "</h6><p class=" + "card-text" + ">" + text + "</p>" + 
-    "<a href=" + link + " class='btn btn-primary'>Explore</a>");
+    $item.append("<div class=" + "flip-card" + "><div class=" + "flip-card-inner" + "><div class=" + 
+    "flip-card-front" + "><h2>" + name + "</h2>" +
+      '<h3>Frequency</h3>' + "<p class=" + center + ">"  + freq + '</p>' + '<h3>Geographies</h3>' + "<p class=" + center + ">"  + geoList + '</p></div>' + 
+      "<div class=" + "flip-card-back" + "><h2>Description</h2>" + "<div class=" + "flip-card-text" + "><p>" + descriptions[i] + "</p>" + "<a href=" + link + " class=" + button + ">Explore</a>" + "</div></div></div>");
     $items = $items ? $items.add( $item ) : $item;
   }
-  $items.appendTo( $("#grid") );
+  $items.appendTo( $("#container") );
 }
-
-$('input.freq').on('change', function() {
-  $('input.freq').not(this).prop('checked', false);  
-});
-
-$("input[type='checkbox']").change(function(){
-  if($(this).is(":checked")){
-      $(this).parent().addClass("checkbox-button-atv"); 
-  }else{
-      $(this).parent().removeClass("checkbox-button-atv");  
-  }
-});
