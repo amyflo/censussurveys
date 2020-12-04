@@ -15,8 +15,8 @@ body{
    } 
 } 
 
-.header {
-  background-color: #112E50;
+.navbar {
+  background: #112E50;
   text-align: center;
   padding: 20px;
 }
