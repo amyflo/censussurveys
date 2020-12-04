@@ -3,6 +3,7 @@ body{
   animation: fadeInAnimation ease 2s;
   animation-iteration-count: 1; 
   animation-fill-mode: forwards; 
+  font-family: Roboto;
 }
 
 @keyframes fadeInAnimation { 
@@ -14,10 +15,12 @@ body{
    } 
 } 
 
-.header {
-  background-color: #112E50;
-  text-align: center;
-  padding: 20px;
+
+nav{
+  background: #112E50 !important;
+  text-transform: uppercase;
+  font-family: Roboto;
+  font-size: 14px;
 }
 
 /* Hero */
