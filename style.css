@@ -16,7 +16,7 @@ body{
 } 
 
 .navbar {
-  background: #112E50;
+  background: #112E50!important;
   text-align: center;
   padding: 20px;
 }
