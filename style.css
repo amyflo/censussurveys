@@ -1,13 +1,23 @@
 body{
   margin: 0;
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1; 
+  animation-fill-mode: forwards; 
 }
 
+@keyframes fadeInAnimation { 
+  0% { 
+      opacity: 0; 
+  } 
+  100% { 
+      opacity: 1; 
+   } 
+} 
 
-nav{
-  background: #112E50 !important;
-  text-transform: uppercase;
-  font-family: Roboto;
-  font-size: 14px;
+.header {
+  background-color: #112E50;
+  text-align: center;
+  padding: 20px;
 }
 
 /* Hero */
