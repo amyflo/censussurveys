@@ -28,30 +28,20 @@ body{
   color: white;
 }
 
-/* SCROLLS */
-.wrapper { 
-  text-align: center; 
-  position: relative;
-  display: flex;
-  min-width: 100px;
+div.scrollmenu {
+  overflow: auto;
+  white-space: nowrap;
 }
 
-.scrolls { 
-  overflow-x: scroll;
-  overflow-y: hidden;
-  height: 50px;
-  background: transparent url('images/backgrounds/scrollbar.png') repeat-y !important;
-} 
-
 /* Hide scrollbar for Chrome, Safari and Opera */
-.scrolls::-webkit-scrollbar {
+.scrollmenu::-webkit-scrollbar {
   display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-.scrolls {
--ms-overflow-style: none;  /* IE and Edge */
-scrollbar-width: none;  /* Firefox */
+.scrollmenu {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .checkbox-button{
@@ -112,56 +102,15 @@ body {
   border-color:#337484 !important;
 }
 
-
-.ck-button {
-  width: 150px;
-  height: 45px;
-  font-size: 14px!important;
-  background:#4093A5;
-  border-radius: 5px;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 0px 4px 0px 2px;
-  cursor: pointer;
+.btn-secondary{
+  border-color: #4093A5  !important;
+  background: none !important;
+  color: #4093A5  !important;
+  margin: 5px;
 }
 
-
-.ck-button {
-  margin:4px;
-  background-color:#EFEFEF;
-  border-radius:4px;
-  border:1px solid #D0D0D0;
-  overflow:auto;
-  float:left;
+.btn-secondary-active{
+  background: #4093A530  !important;
 }
 
-.ck-button:hover {
-  background:red;
-}
-
-.ck-button label {
-  float:left;
-  padding-left: 30px;
-  padding-right: 30px;
-  width:4.0em;
-  background-color: red;
-}
-
-.ck-button label span {
-  text-align:center;
-  padding:3px 0px;
-  display:block;
-}
-
-.ck-button label input {
-  position:absolute;
-  top:-20px;
-}
-
-#ck-button input:checked + span {
-  background-color:#911;
-  color:#fff;
-}
+.checkbox

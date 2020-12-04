@@ -62,7 +62,7 @@ var geographies = [
   "National, State, Other",
   "National, State, County, Place, ZCTA, Tract, Block Group, Block, Other",
   "National",
-  "National, State, Metro Area, County, Economic, Place",
+  "National, State, Metro Area, County, Economic Place, Place",
   "National, State, Metro Area, Other",
   "National, State, Metro Area",
   "National, State, Metro Area, County, Place, ZCTA, Tract, Block Group, Block, Other",
@@ -236,14 +236,14 @@ function createItems() {
   $items.appendTo( $("#grid") );
 }
 
-$('input.freq').on('change', function() {
-  $('input.freq').not(this).prop('checked', false);  
-});
+// $('input[type="checkbox"]').on('change', function() {
+//   $('input[name="' + this.name + '"]').not(this).prop('checked', false);
+// });
 
 $("input[type='checkbox']").change(function(){
   if($(this).is(":checked")){
-      $(this).parent().addClass("checkbox-button-atv"); 
+      $(this).parent().addClass("btn-secondary-active"); 
   }else{
-      $(this).parent().removeClass("checkbox-button-atv");  
+      $(this).parent().removeClass("btn-secondary-active");  
   }
 });
