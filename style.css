@@ -15,12 +15,10 @@ body{
    } 
 } 
 
-
-nav{
-  background: #112E50 !important;
-  text-transform: uppercase;
-  font-family: Roboto;
-  font-size: 14px;
+.header {
+  background-color: #112E50;
+  text-align: center;
+  padding: 20px;
 }
 
 /* Hero */
