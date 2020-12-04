@@ -104,6 +104,74 @@ section{
   border-radius: 5px;
 }
 
+.scrolls { 
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 60px;
+  white-space:nowrap
+} 
+
+.sr-only {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+.card {
+  width: 33%;
+}
+
+.container {
+  margin: auto; 
+  position: relative;
+  width: 100%;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+  .card {
+    width: 50%;
+  }
+  .flip-card{
+    height: 400px;
+  }
+  .flip-card-text{
+    width: 100%;
+  }
+  p{
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    width: 100%;
+  }
+  .flip-card{
+    height: 400px;
+  }
+  .flip-card-text{
+    width: 100%;
+  }
+  p{
+    margin: 0px;
+  }
+  .container{
+    width: 100%;
+
+  }
+}
+
+/* Quick Search */
+
+.wrapper {
+  position: relative;
+  display: flex;
+  min-width: 100px;
+}
+
 .quicksearch {
   border: 1px solid grey;
   border-radius: 5px;

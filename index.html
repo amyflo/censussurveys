@@ -9,19 +9,40 @@
 </head>
 <body>
 
-    <div class="jumbotron hero jumbotron-fluid">
-      <div class="container">
-        <h1>Census Survey Explorer</h1>
-        <h5>Discover Census Bureau surveys or censuses by name or description or by selecting the frequency and/or geography levels they provide.</h5>
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <input class="quicksearch" placeholder="Search" type="text">
-      </div>
-    </div>
+  <div class="header">
+    <img src="https://github.com/amyflo/censussurveys/blob/master/assets/logo.jpg?raw=true" width="150px" alt="U.S. Census Bureau Logo">
+  </div>
 
+  <div class="hero">
+    <h1>U.S. Census Bureau Survey Explorer</h1>
+    <p style="text-align: center;">Discover Census Bureau surveys or censuses by name or description or by selecting the frequency and/or geography levels they provide.</p>
+  </div>
 
-      <span>
-        <div class="checkbox-button">
-          <input type="checkbox" class="sr-only" id="exampleCheck1">
+  <section>
+  <div class="wrapper">
+    <input class="quicksearch" placeholder="Search by survey name, frequency, or description." type="text">
+  </div>
+  
+  <!--FREQUENCIES-->
+  
+  <h2>Frequency</h2>
+  <div class="wrapper ">
+    <div class="scrolls">
+      <div class="btn-group">
+        <div id="ck-button">
+          <label>
+             <input class="sr-only"  type="checkbox" value=".Monthly"><span>Monthly</span>
+          </label>
+       </div>
+       <div id="ck-button">
+          <label>
+             <input class="sr-only" type="checkbox" value=".Quarterly"><span>Quarterly</span>
+          </label>
+       </div>
+        <div id="ck-button">
+          <label>
+            <input class="sr-only" type="checkbox" value=".Annual"><span>Annual</span>
+          </label>
         </div>
         <div id="ck-button">
           <label>
@@ -37,117 +58,66 @@
     </div>
   </div>
 
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-
-    <div class="container mx-auto">
-      <div class="row mb-3">
-        <div class="col-sm-12 ">
-          <h5>Geography</h5>
-          <div class="wrapper mb-1">
-            <div class="scrolls">
-              <div class="btn-group">
-                
-
-                <div class="ck-button">
-                  <label>
-                    <input class="sr-only"  type="checkbox" value=".National" ><span>National</span>
-                  </label>
-                </div>
-                <div class="ck-button">
-                  <label>
-                    <input class="sr-only" type="checkbox" value=".State"><span>State</span>
-                  </label>
-                </div>
-                <div class="ck-button">
-                  <label>
-                    <input class="sr-only" type="checkbox" value=".Metro"><span>Metro Area</span>
-                  </label>
-                </div>
-                <div class="ck-button">
-                  <label>
-                    <input class="sr-only" type="checkbox" value=".County"><span>County</span>
-                  </label>
-                </div>
-                <div class="ck-button">
-                  <label>
-                    <input class="sr-only" type="checkbox" value=".Place"><span>Place</span>
-                  </label>
-                </div>
-                <div class="ck-button">
-                  <label>
-                    <input class="sr-only" type="checkbox" value=".ZCTA"><span>ZCTA</span>
-                  </label>
-                </div>
-                <div class="ck-button">
-                  <label>
-                    <input class="sr-only" type="checkbox" value=".Zip"><span>Zip Code</span>
-                  </label>
-                </div>
-                <div class="ck-button">
-                  <label>
-                    <input class="sr-only" type="checkbox" value=".Tract"><span>Tract</span>
-                  </label>
-                </div>
-                <div class="ck-button">
-                  <label>
-                    <input class="sr-only" type="checkbox" value=".Block"><span>Block</span>
-                  </label>
-                </div>
-                <div class="ck-button">
-                  <label>
-                    <input class="sr-only" type="checkbox" value=".BlockGroup"><span>Block Group</span>
-                  </label>
-                </div>
-                <div class="ck-button">
-                  <label>
-                    <input class="sr-only" type="checkbox" value=".OtherGeo"><span>Other</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <h5>Frequency</h5>
-          <div class="wrapper mb-1">
-            <div class="scrolls">
-              <div class="btn-group">
-                <div class="ck-button">
-                  
-                  <label>
-                      <input class="sr-only freq"  type="checkbox" value=".Monthly"><span>Monthly</span>
-                  </label>
-                </div>
-                <div class="ck-button">
-                  <label>
-                      <input class="sr-only freq" type="checkbox" value=".Quarterly"><span>Quarterly</span>
-                  </label>
-                </div>
-                <div class="ck-button">
-                  <label>
-                    <input class="sr-only freq" type="checkbox" value=".Annual"><span>Annual</span>
-                  </label>
-                </div>
-                <div class="ck-button">
-                  <label>
-                      <input class="sr-only freq" type="checkbox" value=".Decennial"><span>Decennial</span>
-                  </label>
-                </div>
-                <div class="ck-button">
-                  <label>
-                      <input class="sr-only freq" type="checkbox" value=".Other"><span>Other</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
+  <!--GEOGRAPHIES-->
+  <h2>Geography</h2>
+  <div class="wrapper">
+    <div class="scrolls">
+      <div class="btn-group">
+        <div id="ck-button">
+          <label>
+             <input class="sr-only"  type="checkbox" value=".National"><span>National</span>
+          </label>
         </div>
-      </div>
-      <div class="row mx-auto">
-        <div class="card-columns" id="grid"></div>
+        <div id="ck-button">
+          <label>
+             <input class="sr-only" type="checkbox" value=".State"><span>State</span>
+          </label>
+        </div>
+        <div id="ck-button">
+          <label>
+            <input class="sr-only" type="checkbox" value=".Metro"><span>Metro Area</span>
+          </label>
+        </div>
+        <div id="ck-button">
+          <label>
+             <input class="sr-only" type="checkbox" value=".County"><span>County</span>
+          </label>
+        </div>
+        <div id="ck-button">
+          <label>
+             <input class="sr-only" type="checkbox" value=".Place"><span>Place</span>
+          </label>
+        </div>
+        <div id="ck-button">
+          <label>
+            <input class="sr-only" type="checkbox" value=".ZCTA"><span>ZCTA</span>
+          </label>
+        </div>
+        <div id="ck-button">
+          <label>
+            <input class="sr-only" type="checkbox" value=".Zip"><span>Zip Code</span>
+          </label>
+        </div>
+        <div id="ck-button">
+          <label>
+            <input class="sr-only" type="checkbox" value=".Tract"><span>Tract</span>
+          </label>
+        </div>
+        <div id="ck-button">
+          <label>
+            <input class="sr-only" type="checkbox" value=".Block"><span>Block</span>
+          </label>
+        </div>
+        <div id="ck-button">
+          <label>
+            <input class="sr-only" type="checkbox" value=".BlockGroup"><span>Block Group</span>
+          </label>
+        </div>
+        <div id="ck-button">
+          <label>
+            <input class="sr-only" type="checkbox" value=".OtherGeo"><span>Other</span>
+          </label>
+        </div>
       </div>
     </div>
   </div>
