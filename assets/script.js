@@ -203,9 +203,6 @@ filter.change(function(){
 
 // create items
 function createItems() {
-  var button = "button";
-  var center = "center";
-
   var $items;
 
   for (var i=0; i<names.length; i++){
@@ -224,7 +221,7 @@ function createItems() {
     geo = geo.replace(/,/g, '');
 
     var $item = $("<div />", {
-      "class": "card " + freq + " " + geo
+      "class": "card anyfreq" + freq + " " + geo
     });
     $item.append("<h5 class='card-header'>" + freq + "</h5>" + 
     "<div class='card-body'><h5 class=" + "card-title" +">" + 
@@ -235,10 +232,6 @@ function createItems() {
   }
   $items.appendTo( $("#grid") );
 }
-
-// $('input[type="checkbox"]').on('change', function() {
-//   $('input[name="' + this.name + '"]').not(this).prop('checked', false);
-// });
 
 $("input[type='checkbox']").change(function(){
   if($(this).is(":checked")){

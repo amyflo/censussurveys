@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css"/>
+  <title>Find a Survey from the U.S. Census Bureau</title>
+</head>
+<body>
+    <div class="scrollmenu pb-1">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+            <input type="checkbox" value=".National"> National
+            </label>
+        </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+            <input type="checkbox" value=".State"> State
+            </label>
+        </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+            <input type="checkbox" value=".Metro">Metro Area
+            </label>
+        </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+            <input type="checkbox" value=".County"> County
+            </label>
+        </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+            <input type="checkbox" value=".Place"> Place
+            </label>
+        </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+            <input type="checkbox" value=".ZCTA"> ZCTA
+            </label>
+        </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+            <input type="checkbox" value=".Zip"> Zip Code
+            </label>
+        </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+            <input type="checkbox" value=".Tract"> Census Tract
+            </label>
+        </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+            <input type="checkbox" value=".Block"> Block
+            </label>
+        </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+            <input type="checkbox" value=".BlockGroup"> Block Group
+            </label>
+        </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+            <input type="checkbox" value=".Economic"> Economic Place
+            </label>
+        </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+            <input type="checkbox" value=".OtherGeo"> Other
+            </label>
+        </div>
+    </div>
+
+    <div id="container">
+        <div id="content">Click the buttons to slide horizontally!</div>
+      </div>
+      <button id="slideLeft" type="button">Slide left</button>
+      <button id="slideRight" type="button">Slide right</button>
+
+    <style>
+        #container {
+      width:  -moz-calc(100% - 3000px);
+      height: 100px;
+      border: 1px solid #ccc;
+      overflow-x: scroll;
+    }
+
+    #content {
+      width: 250px;
+      background-color: #ccc;
+    }
+    </style>
+    <script>
+     const buttonRight = document.getElementById('slideRight');
+    const buttonLeft = document.getElementById('slideLeft');
+
+    buttonRight.onclick = function () {
+      document.getElementById('container').scrollLeft += 20;
+    };
+    buttonLeft.onclick = function () {
+      document.getElementById('container').scrollLeft -= 20;
+    };
+    </script>
+    <!--SCRIPTS-->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="//npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+<script src="assets/script.js"></script>
+<!--SCRIPTS-->
+</body>
+</html>
