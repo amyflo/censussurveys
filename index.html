@@ -39,166 +39,98 @@
       <input class="quicksearch" placeholder="Search" type="text">
     </div>
   </div>
-<!-- 
-  <nav id="sidebar">
-      <div class="sidebar-header">
-          <h3>Bootstrap Sidebar</h3>
+
+  <div class="container mx-auto">
+    <section class="my-3">
+    <h5>Frequency</h5>
+    <div class="radio-toolbar btn-group">
+        <input type="radio" id="allfreq" name="frequency" value=".allfreq" checked>
+        <label for="allfreq">All</label>
+
+        <input type="radio" id="annual" name="frequency" value=".Annual">
+        <label for="annual">Annual</label>
+    
+        <input type="radio" id="Quarterly" name="frequency" value=".Quarterly">
+        <label for="Quarterly">Quarterly</label>
+
+        <input type="radio" id="Monthly" name="frequency" value=".Monthly">
+        <label for="Monthly">Monthly</label>
+    
+        <input type="radio" id="Decennial" name="frequency" value=".Decennial">
+        <label for="Decennial">Decennial</label> 
+        
+        <input type="radio" id="Other" name="frequency" value=".Other">
+        <label for="Other">Other</label> 
+    </div>
+  </section>
+  <section class="my-3">
+    <h5>Geography</h5>
+    <div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" name="geography" value=".National"> National
+        </label>
       </div>
-
-      <ul class="list-unstyled components">
-          <p>Dummy Heading</p>
-          <li class="active">
-              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-              <ul class="collapse list-unstyled" id="homeSubmenu">
-                  <li>
-                      <a href="#">Home 1</a>
-                  </li>
-                  <li>
-                      <a href="#">Home 2</a>
-                  </li>
-                  <li>
-                      <a href="#">Home 3</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-              <a href="#">About</a>
-          </li>
-          <li>
-              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-              <ul class="collapse list-unstyled" id="pageSubmenu">
-                  <li>
-                      <a href="#">Page 1</a>
-                  </li>
-                  <li>
-                      <a href="#">Page 2</a>
-                  </li>
-                  <li>
-                      <a href="#">Page 3</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-              <a href="#">Portfolio</a>
-          </li>
-          <li>
-              <a href="#">Contact</a>
-          </li>
-      </ul>
-
-  </nav>
-      <span>
-        <div class="checkbox-button">
-          <input type="checkbox" class="sr-only" id="exampleCheck1">
-        </div>
-      </span>
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-
-      </span>
-    </div>
-
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div> -->
-
-    <div class="container mx-auto">
-        <div class="scrollmenu pb-1">
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" value=".National"> National
-            </label>
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" value=".State"> State
-            </label>
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" value=".Metro">Metro Area
-            </label>
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" value=".County"> County
-            </label>
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" value=".Place"> Place
-            </label>
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" value=".ZCTA"> ZCTA
-            </label>
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" value=".Zip"> Zip Code
-            </label>
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" value=".Tract"> Census Tract
-            </label>
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" value=".Block"> Block
-            </label>
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" value=".BlockGroup"> Block Group
-            </label>
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" value=".Economic"> Economic Place
-            </label>
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" value=".OtherGeo"> Other
-            </label>
-          </div>
-        </div>
-        <div class="scrollmenu pb-3">
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" class="freq"  name="freq[]" value=".Monthly">Monthly
-            </label>
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" class="freq"  name="group1[]" value=".Quarterly">Quarterly
-            </label>
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" class="freq" name="freq[]" value=".Annual">Annual
-            </label>
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" class="freq" name="freq[]" value=".Decennial">Decennial
-            </label>
-          </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" class="freq" name="freq[]" value=".Other">Other
-            </label>
-          </div>
-    </div>
-
-
-
-      <div class="row mx-auto">
-        <div class="card-columns" id="grid"></div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".State"> State
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".Metro">Metro Area
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".County"> County
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".Place"> Place
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".ZCTA"> ZCTA
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".Zip"> Zip Code
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".Tract"> Census Tract
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".Block"> Block
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".BlockGroup"> Block Group
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".Economic"> Economic Place
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary">
+            <input type="checkbox" value=".OtherGeo"> Other
+          </label>
       </div>
     </div>
+    </section>
+
+    <div class="card-columns" id="grid"></div>
+  </div>
 
 <!--SCRIPTS-->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
