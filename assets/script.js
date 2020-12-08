@@ -175,7 +175,6 @@ var quicksearch = search.keyup( debounce( function() {
   grid.isotope();
 }, 200 ) );
 
-
 // debounce so filtering doesn"t happen every millisecond
 function debounce( fn, threshold ) {
   var timeout;
@@ -190,6 +189,7 @@ function debounce( fn, threshold ) {
   timeout = setTimeout( delayed, threshold || 100 );
   };
 }
+
 // change filters
 filter.change(function(){
   var filters = [];
@@ -221,7 +221,7 @@ function createItems() {
     geo = geo.replace(/,/g, '');
 
     var $item = $("<div />", {
-      "class": "card anyfreq" + freq + " " + geo
+      "class": "card allfreq " + freq + " " + geo
     });
     $item.append("<h5 class='card-header'>" + freq + "</h5>" + 
     "<div class='card-body'><h5 class=" + "card-title" +">" + 

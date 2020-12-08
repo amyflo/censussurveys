@@ -42,92 +42,93 @@
 
   <div class="container mx-auto">
     <section class="my-3">
-      <h4>Frequency</h4>
-      <div class="radio-toolbar btn-group">
-        <input type="radio" id="anyfreq" name="frequency" value=".anyfreq" checked>
-        <label for="anyfreq">Any</label>
-  
-          <input type="radio" id="annual" name="frequency" value=".Annual">
-          <label for="annual">Annual</label>
-      
-          <input type="radio" id="Quarterly" name="frequency" value=".Quarterly">
-          <label for="Quarterly">Quarterly</label>
-  
-          <input type="radio" id="Monthly" name="frequency" value=".Monthly">
-          <label for="Monthly">Monthly</label>
-      
-          <input type="radio" id="Decennial" name="frequency" value=".Decennial">
-          <label for="Decennial">Decennial</label> 
-          <input type="radio" id="Other" name="frequency" value=".Other">
-          <label for="Other">Other</label> 
+    <h5>Frequency</h5>
+    <div class="radio-toolbar btn-group">
+        <input type="radio" id="allfreq" name="frequency" value=".allfreq" checked>
+        <label for="allfreq">All</label>
+
+        <input type="radio" id="annual" name="frequency" value=".Annual">
+        <label for="annual">Annual</label>
+    
+        <input type="radio" id="Quarterly" name="frequency" value=".Quarterly">
+        <label for="Quarterly">Quarterly</label>
+
+        <input type="radio" id="Monthly" name="frequency" value=".Monthly">
+        <label for="Monthly">Monthly</label>
+    
+        <input type="radio" id="Decennial" name="frequency" value=".Decennial">
+        <label for="Decennial">Decennial</label> 
+        
+        <input type="radio" id="Other" name="frequency" value=".Other">
+        <label for="Other">Other</label> 
+    </div>
+  </section>
+  <section class="my-3">
+    <h5>Geography</h5>
+    <div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" name="geography" value=".National"> National
+        </label>
       </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".State"> State
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".Metro">Metro Area
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".County"> County
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".Place"> Place
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".ZCTA"> ZCTA
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".Zip"> Zip Code
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".Tract"> Census Tract
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".Block"> Block
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".BlockGroup"> Block Group
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="checkbox" value=".Economic"> Economic Place
+        </label>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary">
+            <input type="checkbox" value=".OtherGeo"> Other
+          </label>
+      </div>
+    </div>
     </section>
 
-    <section class="my-3">
-      <h4>Geography</h4>
-      <div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary">
-            <input type="checkbox" name="geography" value=".National"> National
-          </label>
-        </div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary">
-            <input type="checkbox" value=".State"> State
-          </label>
-        </div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary">
-            <input type="checkbox" value=".Metro">Metro Area
-          </label>
-        </div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary">
-            <input type="checkbox" value=".County"> County
-          </label>
-        </div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary">
-            <input type="checkbox" value=".Place"> Place
-          </label>
-        </div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary">
-            <input type="checkbox" value=".ZCTA"> ZCTA
-          </label>
-        </div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary">
-            <input type="checkbox" value=".Zip"> Zip Code
-          </label>
-        </div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary">
-            <input type="checkbox" value=".Tract"> Census Tract
-          </label>
-        </div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary">
-            <input type="checkbox" value=".Block"> Block
-          </label>
-        </div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary">
-            <input type="checkbox" value=".BlockGroup"> Block Group
-          </label>
-        </div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary">
-            <input type="checkbox" value=".Economic"> Economic Place
-          </label>
-        </div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="checkbox" value=".OtherGeo"> Other
-            </label>
-        </div>
-      </div>
-    </section>
     <div class="card-columns" id="grid"></div>
   </div>
 
