@@ -1,0 +1,22 @@
+{
+  "name": "censussurveys",
+  "version": "1.0.0",
+  "description": "Census Survey Explorer that updates cards and allows users to filter through different surveys easily.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amyflo/censussurveys.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amyflo/censussurveys/issues"
+  },
+  "homepage": "https://github.com/amyflo/censussurveys#readme",
+  "dependencies": {
+    "airtable": "^0.10.1"
+  }
+}
