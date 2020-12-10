@@ -2,79 +2,90 @@
 <html>
     <head>
         <script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
-        <script src="airtable.browser.js"></script>
+        <script src="node_modules/airtable/build/airtable.browser.js"></script>
+        <title>Artists</title>
     </head>
     <body>
         <h1>Artists</h1>
-        <div id="artists"></div>
+        <div id="surveys"></div>
 
         <hr/>
-        <button id='create'>Create</button>
-        <div id="created"></div>
     </body>
 
 
+<!-- 
+    create items
+function createItems() {
+  var $items;
+
+  for (var i=0; i<names.length; i++){
+    var name = names[i];
+    var freq = frequencies[i];
+    var link = links[i];
+    var text = descriptions[i];
+    var geoText = geographies[i];
+    var geo = geoText;
+    geo = geo.replace("Block Group", "BlockGroup");
+    geo = geo.replace("Economic Place", "Economic");
+    geo = geo.replace("Metro Area", "Metro");
+    geo = geo.replace("Census Tract", "Census");
+    geo = geo.replace("Zip Code", "Zip");
+    geo = geo.replace("Other", "OtherGeo");
+    geo = geo.replace(/,/g, '');
+
+    var $item = $("<div />", {
+      "class": "card allfreq " + freq + " " + geo
+    });
+    $item.append("<h5 class='card-header'>" + freq + "</h5>" + 
+    "<div class='card-body'><h5 class=" + "card-title" +">" + 
+    name + "</h5><h6 class='card-subtitle mb-2 text-muted'>Geographies: " + 
+    geoText + "</h6><p class=" + "card-text" + ">" + text + "</p>" + 
+    "<a href=" + link + " class='btn btn-primary'>Explore</a>");
+    $items = $items ? $items.add( $item ) : $item;
+  }
+  $items.appendTo( $("#grid") );
+} -->
+
+
+
     <script>
-var Airtable = require('airtable');
-// Get a base ID for an instance of art gallery example
-var base = new Airtable({ apiKey: 'keyYJ7zM4UWu6RYdT' }).base('appAzdZwdzJzHt494');
+        var Airtable = require('airtable');
+        // Get a base ID for an instance of art gallery example
+        var base = new Airtable({ apiKey: 'keyYJ7zM4UWu6RYdT' }).base('appAzdZwdzJzHt494');
 
-var deleteArtist = function(record) {
-    record.destroy(function(err) {
-        if (err) {
-            console.log('Error destroying ', recordId, err);
-        } else {
-            console.log('Destroyed ', record.getId());
-            $('div[data-record-id="'+record.getId()+'"]').remove();
-        }
-    });
-};
+        
+        var loadArtists = function() {
+            $('#surveys').empty();
 
-var loadArtists = function() {
-    $('#artists').empty();
+            base('Surveys').select({
+                view: "Developer",
+                fields: ["Survey", "Description", "Link", "Frequency", "Geography", "Type", "TopicSelect"],
+            }).eachPage(function page(records, fetchNextPage) {
+                records.forEach(function(record) {
+                    console.log('Retrieved ', record.get('Name'));
 
-    base('Artists').select({
-        sort: [
-            {field: 'Name', direction: 'asc'}
-        ]
-    }).eachPage(function page(records, fetchNextPage) {
-        records.forEach(function(record) {
-            console.log('Retrieved ', record.get('Name'));
+                    title = record.get('Survey');
+                    freqs = record.get('Frequency').join(', ');
+                    geos = record.get('Geography').join(', ');
+                    links = record.get('Link')
+                    text = record.get('Description');
+                    
+                    var $artistInfo = $('<div>');
+                    $artistInfo.append($('<h5>').text(title));
+                    $artistInfo.append($('<p>').text(text)); 
+                
+                    $artistInfo.append($('<p>').text(geos)); 
+                    $artistInfo.append($('<p>').text(freqs));
 
-            var $artistInfo = $('<div>');
-            $artistInfo.append($('<h3>').text(record.get('Name')));
-            $artistInfo.append($('<div>').text(record.get('Bio')));
-            var x = $('<button>').text('Delete').click(function() {
-                deleteArtist(record);
+                    $('#surveys').append($artistInfo);
+                });
+
+                fetchNextPage();
+            }, function done(error) {
+                console.log(error);
             });
-            $artistInfo.append(x)
-            $artistInfo.attr('data-record-id', record.getId());
+        };
 
-            $('#artists').append($artistInfo);
-        });
-
-        fetchNextPage();
-    }, function done(error) {
-        console.log(error);
-    });
-};
-
-$('#create').click(function(){
-    base('Artists').create({
-        "Name": "Al Held",
-        "Bio": "Al Held began his painting career by exhibiting Abstract Expressionist works in New York; he later turned to hard-edged geometric paintings that were ...",
-        "Genre": [
-            "American Abstract Expressionism",
-            "Color Field"
-        ],
-        "On Display?": true
-    }, function(err, record) {
-        if (err) { console.log(err); return; }
         loadArtists();
-    });
-});
-
-loadArtists();
-
 </script>
 </html>
