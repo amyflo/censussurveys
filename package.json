@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/amyflo/censussurveys#readme",
   "dependencies": {
-    "airtable": "^0.10.1"
+    "airtable": "^0.10.1",
+    "airtable-node": "^0.1.20"
   }
 }
