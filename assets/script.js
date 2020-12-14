@@ -201,7 +201,7 @@ filter.change(function(){
   grid.isotope();
 });
 
-// create items
+// // create items
 function createItems() {
   var $items;
 
@@ -230,7 +230,7 @@ function createItems() {
     "<a href=" + link + " class='btn btn-primary'>Explore</a>");
     $items = $items ? $items.add( $item ) : $item;
   }
-  $items.appendTo( $("#grid") );
+  $items.appendTo( $("#grid"));
 }
 
 $("input[type='checkbox']").change(function(){

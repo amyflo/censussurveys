@@ -8,104 +8,105 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <img src="assets/logo.jpg" width="100" class="mr-5 d-inline-block align-top" alt="U.S. Census Bureau">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Geographies</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Help</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="mailto:amy.lo@census.gov">Feedback</a>
-                </li>
-              </ul>
-            </div>
-        </nav>
+      
 
-        <div class="jumbotron hero jumbotron-fluid">
-            <div class="container">
-                <div class="row">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+          <img src="assets/logo.jpg" width="100" class="mr-5 d-inline-block align-top" alt="U.S. Census Bureau">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Geographies</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Help</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="mailto:amy.lo@census.gov">Feedback</a>
+              </li>
+            </ul>
+          </div>
+      </nav>
 
-                    <h1>Census Survey Explorer</h1>
+      <div class="jumbotron hero jumbotron-fluid">
+          <div class="container">
+              <div class="row">
+
+                  <h1>Census Survey Explorer</h1>
               <h5>Discover Census Bureau surveys or censuses by name or description or by selecting frequency and / or geography levels.</h5>
               <input class="quicksearch" placeholder="Search" type="text">
-                </div>
-
-              <div class="row">
-                <div class="dropdown show">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Frequencies
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <ul>
-                            <li><input type="checkbox" />Apple </li>
-                            <li><input type="checkbox" />Orange</li>
-                            <li><input type="checkbox" />Grapes </li>
-                            <li><input type="checkbox" />Berry </li>
-                            <li><input type="checkbox" />Mango </li>
-                            <li><input type="checkbox" />Banana </li>
-                            <li><input type="checkbox" />Tomato</li>
-                        </ul>    
-                    </div>
-                </div>
-                <div class="dropdown show">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Geographies
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <ul>
-                            <li><input type="checkbox" />Apple </li>
-                            <li><input type="checkbox" />Orange</li>
-                            <li><input type="checkbox" />Grapes </li>
-                            <li><input type="checkbox" />Berry </li>
-                            <li><input type="checkbox" />Mango </li>
-                            <li><input type="checkbox" />Banana </li>
-                            <li><input type="checkbox" />Tomato</li>
-                        </ul>    
-                    </div>
-                </div>
-                <div class="dropdown show">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Geographies
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <ul>
-                            <li><input type="checkbox"/>Apple </li>
-                            <li><input type="checkbox" />Orange</li>
-                            <li><input type="checkbox" />Grapes </li>
-                            <li><input type="checkbox" />Berry </li>
-                            <li><input type="checkbox" />Mango </li>
-                            <li><input type="checkbox" />Banana </li>
-                            <li><input type="checkbox" />Tomato</li>
-                        </ul>    
-                    </div>
-                </div>
               </div>
-            </div>
-        </div>
 
-        <div class="container">
-            <div class="card-columns" id="surveys"></div>
-        </div>
+            <!-- <div class="row">
+              <div class="dropdown show">
+                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Frequencies
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <ul>
+                          <li><input type="checkbox" />Apple </li>
+                          <li><input type="checkbox" />Orange</li>
+                          <li><input type="checkbox" />Grapes </li>
+                          <li><input type="checkbox" />Berry </li>
+                          <li><input type="checkbox" />Mango </li>
+                          <li><input type="checkbox" />Banana </li>
+                          <li><input type="checkbox" />Tomato</li>
+                      </ul>    
+                  </div>
+              </div>
+              <div class="dropdown show">
+                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="#geographies" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Geographies
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="geographies">
+                      <ul>
+                          <li><input type="checkbox" />Apple </li>
+                          <li><input type="checkbox" />Orange</li>
+                          <li><input type="checkbox" />Grapes </li>
+                          <li><input type="checkbox" />Berry </li>
+                          <li><input type="checkbox" />Mango </li>
+                          <li><input type="checkbox" />Banana </li>
+                          <li><input type="checkbox" />Tomato</li>
+                      </ul>    
+                  </div>
+              </div>
+              <div class="dropdown show">
+                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Geographies
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <ul>
+                          <li><input type="checkbox"/>Apple </li>
+                          <li><input type="checkbox" />Orange</li>
+                          <li><input type="checkbox" />Grapes </li>
+                          <li><input type="checkbox" />Berry </li>
+                          <li><input type="checkbox" />Mango </li>
+                          <li><input type="checkbox" />Banana </li>
+                          <li><input type="checkbox" />Tomato</li>
+                      </ul>    
+                  </div>
+              </div>
+            </div> -->
+          </div>
+      </div>
 
-        <!--Scripting-->
+      <div class="container">
+          <div class="card-columns" id="grid">
+          </div>
+      </div>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="node_modules/airtable/build/airtable.browser.js"></script>
-        <script src="test.js"></script>
-        <script src="//npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+      <!--Scripting-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+      <script src="https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+      <script src="node_modules/airtable/build/airtable.browser.js"></script>
+      <script src="test.js"></script>
     </body>
-
-
 </html>

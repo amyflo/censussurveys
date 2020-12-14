@@ -1,11 +1,15 @@
+var grid=$("#grid");
+var filter=$(".btn-group input");
+var search=$(".quicksearch");
+var qsRegex;
+var buttonFilter;
 var Airtable = require('airtable');
 // Get a base ID for an instance of art gallery example
 var base = new Airtable({ apiKey: 'keyYJ7zM4UWu6RYdT' }).base('appAzdZwdzJzHt494');
 
 
-var createSurveys = function() {
-    $('#surveys').empty();
-
+function createSurveys() {
+    // $('#grid').empty();
     base('Surveys').select({
         view: "Developer",
         fields: ["Survey", "Description", "Link", "Frequency", "Geography", "Type", "TopicSelect"],
@@ -31,9 +35,7 @@ var createSurveys = function() {
             
 
             var $card= $('<div/>', {
-                id: 'some-id',
-                "class": freqs + ' ' + geosfilter + ' card card-body',
-                title: surveyname
+                "class":'card card-body ' + freqs + ' ' + geosfilter ,
             });
             
             $card.append($("<h5 class='card-title'>").text(surveyname));
@@ -43,10 +45,7 @@ var createSurveys = function() {
             $card.append($("<p class='card-text'>").text(text)); 
 
             $card.append("<div class='btn btn-primary'" + linktext.link(link) + "</div>");
-
-
-
-            $('#surveys').append($card);
+            $('#grid').append($card);
         });
 
         fetchNextPage();
@@ -57,3 +56,45 @@ var createSurveys = function() {
 
 createSurveys();
 
+// filter items 
+grid.isotope({
+    itemSelector: ".card",
+    filter: function() {
+      // console.log(searchResult);
+      var searchResult = qsRegex ? $(this).text().match( qsRegex ) : true;
+      var buttonResult = buttonFilter ? $(this).is( buttonFilter ) : true;
+      return searchResult && buttonResult;
+    }
+  });
+  
+  // use value of search field to filter
+  var quicksearch = search.keyup( debounce( function() {
+    qsRegex = new RegExp( quicksearch.val(), "gi" );
+    grid.isotope();
+  }, 200 ) );
+  
+  // debounce so filtering doesn"t happen every millisecond
+  function debounce( fn, threshold ) {
+    var timeout;
+    return function debounced() {
+    if ( timeout ) {
+      clearTimeout( timeout );
+    }
+    function delayed() {
+      fn();
+      timeout = null;
+    }
+    timeout = setTimeout( delayed, threshold || 100 );
+    };
+  }
+  
+  // change filters
+  filter.change(function(){
+    var filters = [];
+    filter.filter(":checked").each(function(){
+      filters.push( this.value );
+    });
+    filters = filters.join("");
+    buttonFilter = filters;
+    grid.isotope();
+  });
