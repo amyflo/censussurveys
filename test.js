@@ -35,13 +35,7 @@ function createSurveys() {
             
 
             var $card= $('<div/>', {
-<<<<<<< Updated upstream
                 "class":'card card-body ' + freqs + ' ' + geosfilter ,
-=======
-                id: surveyname,
-                "class": ' card-body' + freqs + ' ' + geosfilter + ,
-                title: surveyname
->>>>>>> Stashed changes
             });
             
             $card.append($("<h5 class='card-title'>").text(surveyname));
@@ -51,12 +45,7 @@ function createSurveys() {
             $card.append($("<p class='card-text'>").text(text)); 
 
             $card.append("<div class='btn btn-primary'" + linktext.link(link) + "</div>");
-<<<<<<< Updated upstream
-=======
 
-
-
->>>>>>> Stashed changes
             $('#grid').append($card);
         });
 
