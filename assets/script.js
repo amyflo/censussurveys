@@ -1,4 +1,4 @@
-var grid=$("#grid");
+var grid=$("#surveys");
 var filter=$(".btn-group input");
 var search=$(".quicksearch");
 var qsRegex;
@@ -158,7 +158,7 @@ Isotope.LayoutMode.create('none');
 
 // filter items 
 grid.isotope({
-  itemSelector: ".card",
+  itemSelector: ".card-body",
   layoutMode: 'none',
   stagger: 0,
   filter: function() {
