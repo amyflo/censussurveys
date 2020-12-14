@@ -7,6 +7,11 @@ var Airtable = require('airtable');
 // Get a base ID for an instance of art gallery example
 var base = new Airtable({ apiKey: 'keyYJ7zM4UWu6RYdT' }).base('appAzdZwdzJzHt494');
 
+// create empty array []
+// append items after for each loop
+// make that a separate function
+// everytime you change loop through again
+// airtable is just filtering the array
 
 function createSurveys() {
     // $('#grid').empty();
@@ -15,14 +20,14 @@ function createSurveys() {
         fields: ["Survey", "Description", "Link", "Frequency", "Geography", "Type", "TopicSelect"],
     }).eachPage(function page(records, fetchNextPage) {
         records.forEach(function(record) {
-            console.log('Retrieved ', record.get('Name'));
+            console.log('Retrieved ', record);
 
             surveyname = record.get('Survey');
             freqs = record.get('Frequency').join(', ');
             geos = record.get('Geography').join(', ');
             link = record.get('Link')
             text = record.get('Description');
-
+            
             geosfilter = geos.replace("Block Group", "BlockGroup");
             geosfilter = geosfilter.replace("Economic Place", "Economic");
             geosfilter = geosfilter.replace("Metro Area", "Metro");
@@ -55,24 +60,29 @@ function createSurveys() {
     });
 };
 
+
+// var state = empty array
+// manipulate array
+
 createSurveys();
+
 
 // filter items 
 grid.isotope({
     itemSelector: ".card",
     filter: function() {
-      // console.log(searchResult);
-      var searchResult = qsRegex ? $(this).text().match( qsRegex ) : true;
-      var buttonResult = buttonFilter ? $(this).is( buttonFilter ) : true;
-      return searchResult && buttonResult;
+        // console.log(searchResult);
+        var searchResult = qsRegex ? $(this).text().match( qsRegex ) : true;
+        var buttonResult = buttonFilter ? $(this).is( buttonFilter ) : true;
+        return searchResult && buttonResult;
     }
-  });
-  
-  // use value of search field to filter
-  var quicksearch = search.keyup( debounce( function() {
+});
+
+// use value of search field to filter
+var quicksearch = search.keyup( debounce( function() {
     qsRegex = new RegExp( quicksearch.val(), "gi" );
     grid.isotope();
-  }, 200 ) );
+}, 200 ) );
   
   // debounce so filtering doesn"t happen every millisecond
   function debounce( fn, threshold ) {
@@ -89,13 +99,13 @@ grid.isotope({
     };
   }
   
-  // change filters
-  filter.change(function(){
-    var filters = [];
-    filter.filter(":checked").each(function(){
-      filters.push( this.value );
+    // change filters
+    filter.change(function(){
+        var filters = [];
+        filter.filter(":checked").each(function(){
+            filters.push( this.value );
+        });
+        filters = filters.join("");
+        buttonFilter = filters;
+        grid.isotope();
     });
-    filters = filters.join("");
-    buttonFilter = filters;
-    grid.isotope();
-  });
