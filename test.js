@@ -6,7 +6,7 @@ var buttonFilter;
 var Airtable = require('airtable');
 // Get a base ID for an instance of art gallery example
 var base = new Airtable({ apiKey: 'keyYJ7zM4UWu6RYdT' }).base('appAzdZwdzJzHt494');
-
+var surveys = {};
 // create empty array []
 // append items after for each loop
 // make that a separate function
@@ -14,20 +14,22 @@ var base = new Airtable({ apiKey: 'keyYJ7zM4UWu6RYdT' }).base('appAzdZwdzJzHt494
 // airtable is just filtering the array
 
 function createSurveys() {
-    // $('#grid').empty();
+    $('#grid').empty();
     base('Surveys').select({
         view: "Developer",
         fields: ["Survey", "Description", "Link", "Frequency", "Geography", "Type", "TopicSelect"],
     }).eachPage(function page(records, fetchNextPage) {
         records.forEach(function(record) {
-            console.log('Retrieved ', record);
+            // console.log('Retrieved ', record);
 
+            // retrieving survey info
             surveyname = record.get('Survey');
             freqs = record.get('Frequency').join(', ');
             geos = record.get('Geography').join(', ');
             link = record.get('Link')
             text = record.get('Description');
-            
+
+            // creating filter names to match buttons
             geosfilter = geos.replace("Block Group", "BlockGroup");
             geosfilter = geosfilter.replace("Economic Place", "Economic");
             geosfilter = geosfilter.replace("Metro Area", "Metro");
@@ -36,22 +38,29 @@ function createSurveys() {
             geosfilter = geosfilter.replace("Other", "OtherGeo");
             geosfilter = geosfilter.replace(/,/g, '');
 
-            var linktext = "Explore Now";
+            // creating mapped object
+            surveys[surveyname] = {}
+            surveyinfo = surveys[surveyname]
+            surveyinfo["freqs"] = freqs;
+            surveyinfo["geos"] = geos;
+            surveyinfo["freqs"] = link;
+            console.log(surveys);
             
-
+            
+            var linktext = "Explore Now";
             var $card= $('<div/>', {
                 "class":'card card-body ' + freqs + ' ' + geosfilter ,
             });
             
-            $card.append($("<h5 class='card-title'>").text(surveyname));
+            // $card.append($("<h5 class='card-title'>").text(surveyname));
 
-            $card.append($("<h6 class='card-subtitle mb-2 text-muted'>").text('Frequency: ' + freqs)); 
-            $card.append($("<h6 class='card-subtitle mb-2 text-muted'>").text('Geography: ' + geos)); 
-            $card.append($("<p class='card-text'>").text(text)); 
+            // $card.append($("<h6 class='card-subtitle mb-2 text-muted'>").text('Frequency: ' + freqs)); 
+            // $card.append($("<h6 class='card-subtitle mb-2 text-muted'>").text('Geography: ' + geos)); 
+            // $card.append($("<p class='card-text'>").text(text)); 
 
-            $card.append("<div class='btn btn-primary'" + linktext.link(link) + "</div>");
+            // $card.append("<div class='btn btn-primary'" + linktext.link(link) + "</div>");
 
-            $('#grid').append($card);
+            // $('#grid').append($card);
         });
 
         fetchNextPage();
