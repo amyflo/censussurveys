@@ -29,8 +29,10 @@ records.forEach(function(record) {
         "class":'card card-body show ' + freqs + ' ' +  geofilters
     });
     $cardInfo.append($('<h5>').text(record.get('Survey')));
+    $cardInfo.append($('<div>').text('Geographies: ' + geos));
     $cardInfo.append($('<div>').text(record.get('Description')));
-    $cardInfo.attr('data-record-id', record.getId());
+
+
     $('#cards').append($cardInfo);
 });
 }

@@ -2,112 +2,150 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            .card {
-  display: none !important;
-}
-
-/* The "show" class is added to the filtered elements */
-.show {
-  display: inline-block !important;
-}
-
-/* Style the buttons */
-.btn {
-  border: none;
-  outline: none;
-  padding: 12px 16px;
-  background-color: #f1f1f1;
-  cursor: pointer;
-}
-
-/* Add a light grey background on mouse-over */
-.btn:hover {
-  background-color: #ddd;
-}
-
-/* Add a dark background to the active button */
-.btn.active {
-  background-color: #666;
-  color: white;
-}
-        </style>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+       
         <title>Find a Survey from the U.S. Census Bureau</title>
     </head>
-
     
+    <style>
+        ul{
+            list-style-type: none;
+            list-style-position: inside;
+            padding-left: 10px;
+        }
+        .dropdown-menu{
+          max-height:200px;
+          overflow-y:auto;
+       }
+    </style>
     <body>
-        <div id="myBtnContainer">
-            <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-            <button class="btn" onclick="filterSelection('State')"> State</button>
-            <button class="btn" onclick="filterSelection('animals')"> Animals</button>
-            <button class="btn" onclick="filterSelection('fruits')"> Fruits</button>
-            <button class="btn" onclick="filterSelection('colors')"> Colors</button>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <img src="assets/logo.jpg" width="100" class="mr-5 d-inline-block align-top" alt="U.S. Census Bureau">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Geographies</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Help</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="mailto:amy.lo@census.gov">Feedback</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+        <div class="jumbotron hero jumbotron-fluid">
+            <div class="container">
+              <h1>Census Survey Explorer</h1>
+              <h5>Discover Census Bureau surveys or censuses by name or description or by selecting frequency and / or geography levels.</h5>
+              <input class="quicksearch" placeholder="Search" type="text">
+            </div>
         </div>
-
-        <script>
-            filterSelection("all")
-            function filterSelection(c) {
-            var x, i;
-            x = document.getElementsByClassName("card");
-            if (c == "all") c = "";
-            // Add the "show" class (display:inline0block) to the filtered elements, and remove the "show" class from the elements that are not selected
-            for (i = 0; i < x.length; i++) {
-                removeClass(x[i], "show");
-                if (x[i].className.indexOf(c) > -1) addClass(x[i], "show");
-            }
-            }
-
-            // Show filtered elements
-            function addClass(element, name) {
-            var i, arr1, arr2;
-            arr1 = element.className.split(" ");
-            arr2 = name.split(" ");
-            for (i = 0; i < arr2.length; i++) {
-                if (arr1.indexOf(arr2[i]) == -1) {
-                element.className += " " + arr2[i];
-                }
-            }
-            }
-
-            // Hide elements that are not selected
-            function removeClass(element, name) {
-            var i, arr1, arr2;
-            arr1 = element.className.split(" ");
-            arr2 = name.split(" ");
-            for (i = 0; i < arr2.length; i++) {
-                while (arr1.indexOf(arr2[i]) > -1) {
-                arr1.splice(arr1.indexOf(arr2[i]), 1);
-                }
-            }
-            element.className = arr1.join(" ");
-            }
-
-            // Add active class to the current control button (highlight it)
-            var btnContainer = document.getElementById("myBtnContainer");
-            var btns = btnContainer.getElementsByClassName("btn");
-            for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function() {
-                var current = document.getElementsByClassName("active");
-                current[0].className = current[0].className.replace(" active", "");
-                this.className += " active";
-            });
-}
-        </script>
-
+        <div class="container mx-auto">
+            <div id="filterCards" class="mb-3">
+                <div class="btn-group">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Geographies
+                    </button>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><input type="checkbox" id="National" name="geo" /> National</li> 
+                            <li><input type="checkbox" id="State" name="geo" /> State</li>
+                            <li><input type="checkbox" id="Metro" name="geo" /> Metro Area</li>
+                            <li><input type="checkbox" id="County" name="geo" /> County</li>
+                            <li><input type="checkbox" id="Place" name="geo" /> Place</li>
+                        </ul>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Learn More</a>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Frequencies
+                    </button>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><input type="checkbox" id="Annual" name="freq" /> Annual</li> 
+                            <li><input type="checkbox" id="Quarterly" name="freq" /> Quarterly</li>
+                            <li><input type="checkbox" id="Monthly" name="freq" /> Monthly</li>
+                            <li><input type="checkbox" id="Decennial" name="freq" /> Decennial</li>
+                            <li><input type="checkbox" id="Other" name="freq" /> Other</li>
+                        </ul>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Learn More</a>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Subtopics
+                    </button>
+                    <div class="dropdown-menu">
+                        <h6 class="dropdown-header">Demographics</h6>
+                        <ul>
+                            <li><input type="checkbox" id="Age" name="freq" /> Age</li> 
+                            <li><input type="checkbox" id="Ancestry" name="freq" /> Ancestry</li>
+                            <li><input type="checkbox" id="Business" name="freq" /> Business</li>
+                            <li><input type="checkbox" id="BusinessOwner" name="freq" /> Business Owner</li>
+                            <li><input type="checkbox" id="Children" name="freq" /> Children</li>
+                        </ul>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Learn More</a>
+                    </div>
+                    
+                </div>
+                <button class="btn btn-secondary btn-sm" onclick="window.location.reload();">Reset</button>
+            
+            </div>
+            <div id="cards" class="card-columns">
+            </div>
         
-        <div class="card-columns" id="cards">
         </div>
-
-        <!--Scripting-->
         
+
         
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="node_modules/airtable/build/airtable.browser.js"></script>
         <script src="test.js"></script>
+
+        <script>
+            var filter = "";
+
+            var filterCards = function() {
+            if (filter) {
+                $(".card").hide();
+                $(filter).show();
+            } else {
+                $(".card").show();
+            }
+            };
+
+            $("#filterCards input").change(function() {
+            if ($(this).is(":checked")) {
+                filter = filter + "." + this.id;
+            } else {
+                filter = filter.replace("." + this.id, "");
+            }
+            filterCards();
+            });
+
+       
+            // function uncheckAll() {
+            //     $("input[type='checkbox']:checked").prop("checked", false)
+            //     }
+            // $(':button').on('click', uncheckAll)
+
+            
+        </script>
 
         
     </body>
