@@ -22,25 +22,38 @@ records.forEach(function(record) {
     geos = record.get('Geography').join(', ');
     link = record.get('Link')
     text = record.get('Description');
+    subtopics = record.get('Subtopics').join(', ');
     geofilters = createGeofilters(geos);
 
     // create cards
-    var $cardInfo = $('<div/>', {
-        "class":'card card-body show ' + freqs + ' ' +  geofilters
+    var $card = $('<div/>', {
+        "class":'card mb-3 ' + freqs + ' ' +  geofilters
     });
-    $cardInfo.append($('<h5>').text(record.get('Survey')));
-    $cardInfo.append($('<div>').text('Geographies: ' + geos));
-    $cardInfo.append($('<div>').text(record.get('Description')));
+    $card.append("<div class='card-header'>" + record.get('Survey').link(link) + "</div>");
 
+    var $cardBody = $('<div/>', {
+      "class":'card-body'
+    });
+    var $cardDividers = $('<ul/>', {
+      "class": 'list-group list-group-flush'
+    });
 
-    $('#cards').append($cardInfo);
+    $cardBody.append($("<p class='card-text'>").text(record.get('Description')));
+    $card.append($cardBody);
+
+    $card.append($cardDividers);
+    $cardDividers.append("<li class='list-group-item'>" + '<b>Frequencies: </b>' + freqs + '</li>');
+    $cardDividers.append("<li class='list-group-item'>" + '<b>Geographies: </b>' + geos + '</li>');
+    $cardDividers.append("<li class='list-group-item'>" + '<b>Subtopics: </b>' + subtopics + '</li>');
+
+    $('#cards').append($card);
 });
 }
 
 // selecting the base and appropriate fields
 base('Surveys').select({
     view: "Developer",
-    fields: ["Survey", "Description", "Link", "Frequency", "Geography", "Type", "TopicSelect"],
+    fields: ["Survey", "Description", "Link", "Frequency", "Geography", "Subtopics"],
 }).eachPage(processPage, processRecords)
 
 // create class name text  for the geography to match selectors
@@ -53,3 +66,9 @@ function createGeofilters(geos){
     return geofilters;
 }
 
+
+
+function viewChange() {
+  var element = document.getElementById("cards");
+  element.classList.toggle("card-columns");
+}
