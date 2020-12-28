@@ -16,9 +16,9 @@ body{
 } 
 
 .navbar {
+  margin:0;
   background: #112E50!important;
   text-align: center;
-  padding: 20px;
 }
 
 /* Hero */
@@ -33,28 +33,27 @@ div.scrollmenu {
   white-space: nowrap;
 }
 
-.checkbox-button{
-  padding: 12px 18px;
-  border: 1px #4093A5 solid;
-  color:#4093A5;
-  border-radius: 20px;
+.btn-primary{
+  border: 1px #4093A5 solid !important;
+  background-color:#4093A5 !important;
+}
+
+.btn-primary:hover, active, focus{
+  border: 1px #4093A5 solid !important;
+  background:#337484 !important;
   transition: 0.3s;
 }
 
-.checkbox-button-atv{
-  background:#4093A530;
-  transition: 0.3s;
-  border: 1px #4093A5 solid;
+.btn-outline-secondary{
+  border: 1px #4093A5 solid !important;
+  color: #4093A5 !important;
 }
 
-.sr-only {
-  position:absolute;
-  left:-10000px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
+.btn-outline-secondary:hover, active, focus{
+  background: #4093A530 !important;
+  transition: 0.3s;
 }
+
 
 .quicksearch {
   border: 1px solid grey;
@@ -73,16 +72,7 @@ div.scrollmenu {
   transition: 0.3s;
 }
 
-.scrollable-menu {
-  height: auto;
-  max-height: 200px;
-  overflow-x: hidden;
-}
-
-body {
-  font-family: Roboto, sans-serif;
-  font-weight: 300;
-}
+/* }
 
 .btn-primary {
   background: #4093A5  !important;
@@ -125,4 +115,15 @@ body {
 
 .radio-toolbar input[type="radio"]:checked + label {
   background: #4093A530;
-}
+} */
+
+
+  ul{
+      list-style-type: none;
+      list-style-position: inside;
+      padding-left: 10px;
+  }
+  .dropdown-menu{
+    max-height:200px;
+    overflow-y:auto;
+  }
