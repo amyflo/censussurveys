@@ -1,6 +1,5 @@
 var Airtable = require('airtable');
-// Get a base ID for an instance of art gallery example
-var base = new Airtable({ apiKey: 'keyYJ7zM4UWu6RYdT' }).base('appAzdZwdzJzHt494');
+var base = new Airtable({apiKey: 'keyYJ7zM4UWu6RYdT'}).base('appAzdZwdzJzHt494');
 
 let records = []
 
