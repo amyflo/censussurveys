@@ -127,3 +127,7 @@ div.scrollmenu {
     max-height:200px;
     overflow-y:auto;
   }
+
+  .card{
+    width: 100%;
+  }
