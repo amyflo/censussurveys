@@ -55,7 +55,7 @@ div.scrollmenu {
 }
 
 
-.quicksearch {
+#quicksearch {
   border: 1px solid grey;
   border-radius: 5px;
   height: 40px;
@@ -67,7 +67,7 @@ div.scrollmenu {
   transition: 0.3s;
 }
 
-.quicksearch:hover{
+#quicksearch:hover{
   border: 4px solid #7ECAD3;
   transition: 0.3s;
 }

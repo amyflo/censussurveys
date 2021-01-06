@@ -1,4 +1,4 @@
-var Airtable = require('airtable');
+var Airtable = require('airtable')
 var base = new Airtable({apiKey: 'keyYJ7zM4UWu6RYdT'}).base('appAzdZwdzJzHt494');
 
 let records = []
@@ -66,6 +66,8 @@ function createGeofilters(geos){
 }
 
 // changing view from card columns to horizontal layout
+
+document.getElementById("viewChange").onclick = viewChange;
 function viewChange() {
   var element = document.getElementById("cards");
   element.classList.toggle("card-columns");
@@ -73,12 +75,15 @@ function viewChange() {
 
 var filter = "";
 
+// uncheck all checkboxes and clear checked filters
+document.getElementById("uncheckAll").onclick = uncheckAll;
 function uncheckAll() {
   $("input[type='checkbox']:checked").prop("checked", false)
   filter = "";
   filterSearch();
 }
 
+// add or remove filters on checkbox change
 $("#filterCards input").change(function() {
   if ($(this).is(":checked")) {
     filter = filter + "." + this.id;
@@ -88,6 +93,8 @@ $("#filterCards input").change(function() {
   filterSearch();
 })
 
+
+// check whether inner text contains input
 function searchText(input, x){
   for (i = 0; i < x.length; i++) { 
     x[i].style.display = "inline-block";
@@ -98,13 +105,17 @@ function searchText(input, x){
   }
 }
 
+// hide or show cards based on filters
+document.getElementById("quicksearch").onkeyup = filterSearch;
+
 function filterSearch(){
-  let input = $('.quicksearch').val().toLowerCase();
-  input = input.trim();
+  var input = document.getElementById("quicksearch");
+  inputVal = input.value;
+  inputVal = inputVal.toLowerCase().trim();
   if (filter){
     $(".card").hide();
-    searchText(input, $(filter));
+    searchText(inputVal, $(filter));
   } else {
-    searchText(input, $('.card'));
+    searchText(inputVal, $('.card'));
   }
 }
