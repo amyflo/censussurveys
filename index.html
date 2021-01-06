@@ -4,14 +4,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css"/>
-  <script src="node_modules/airtable/build/airtable.browser.js"></script>
-  <script src="node_modules/airtable/lib/airtable.js"></script>
+  <link rel="stylesheet" href="./style.css"/>
   <title>Find a Survey from the U.S. Census Bureau</title>
 </head>
 <body>
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <img src="assets/logo.jpg" width="100" class="mr-5 d-inline-block align-top" alt="U.S. Census Bureau">
+            <img src="./assets/logo.jpg" width="100" class="mr-5 d-inline-block align-top" alt="U.S. Census Bureau">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,7 +35,7 @@
             <div class="container">
               <h1>Census Survey Explorer</h1>
               <h5>Discover Census Bureau surveys or censuses by name or description or by selecting frequency and / or geography levels.</h5>
-              <input class="quicksearch" onkeyup="filterSearch()" placeholder="Search" type="text">
+              <input id="quicksearch" placeholder="Search" type="text">
             </div>
         </div>
 
@@ -93,24 +91,18 @@
                         </div>
                 </div>
 
-                <button class="btn btn-outline-secondary btn-sm" onclick="viewChange()">Change View</button>
-                <button class="btn btn-outline-secondary btn-sm" onclick="uncheckAll()">Reset Filters</button>
+                <button class="btn btn-outline-secondary btn-sm" id="viewChange">Change View</button>
+                <button class="btn btn-outline-secondary btn-sm" id="uncheckAll">Reset Filters</button>
             </div>
             <div id="cards" class="card-columns">
             </div>
         </div>
-
-        <script>
-
-        </script>
-
- 
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-       
         <script src="assets/script.js"></script>
+        <!-- <script src="node_modules/airtable/build/airtable.browser.js"></script> -->
     </body>
 </html>
