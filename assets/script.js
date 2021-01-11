@@ -1,4 +1,5 @@
 var Airtable = require('airtable')
+var filter = "";
 var base = new Airtable({apiKey: 'keyYJ7zM4UWu6RYdT'}).base('appAzdZwdzJzHt494');
 
 let records = []
@@ -26,17 +27,18 @@ records.forEach(function(record) {
 
     // create cards
     var $card = $('<div/>', {
-        "class":'card mb-3 ' + freqs + ' ' +  geofilters
+        "class":'card mb-3 p-5' + freqs + ' ' +  geofilters
     });
-    $card.append("<div class='card-header'>" + record.get('Survey').link(link) + "&nbsp;</div>");
-
+    
     var $cardBody = $('<div/>', {
       "class":'card-body'
     });
+
     var $cardDividers = $('<ul/>', {
       "class": 'list-group list-group-flush'
     });
 
+    $cardBody.append("<h5 class='card-title'>" + record.get('Survey').link(link) + "&nbsp;</h5>");
     $cardBody.append($("<p class='card-text'>").text(record.get('Description')));
     $card.append($cardBody);
 
@@ -66,14 +68,11 @@ function createGeofilters(geos){
 }
 
 // changing view from card columns to horizontal layout
-
 document.getElementById("viewChange").onclick = viewChange;
 function viewChange() {
   var element = document.getElementById("cards");
   element.classList.toggle("card-columns");
 }
-
-var filter = "";
 
 // uncheck all checkboxes and clear checked filters
 document.getElementById("uncheckAll").onclick = uncheckAll;
@@ -92,7 +91,6 @@ $("#filterCards input").change(function() {
   }
   filterSearch();
 })
-
 
 // check whether inner text contains input
 function searchText(input, x){

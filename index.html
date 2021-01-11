@@ -1,41 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./style.css"/>
-  <title>Find a Survey from the U.S. Census Bureau</title>
-</head>
-<body>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css"/>
+    <title>Find a Survey from the U.S. Census Bureau</title>
+    </head>
+    <body>
         <nav class="navbar navbar-expand-lg navbar-dark">
             <img src="./assets/logo.jpg" width="100" class="mr-5 d-inline-block align-top" alt="U.S. Census Bureau">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
+                <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Geographies</a>
+                    <a class="nav-link" href="./geo.html">Geographies</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Help</a>
+                    <a class="nav-link" href="./freq.html">Frequencies</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="mailto:amy.lo@census.gov">Feedback</a>
+                    <a class="nav-link" href="#">Help</a>
                 </li>
-              </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="mailto:amy.lo@census.gov">Feedback</a>
+                </li>
+                </ul>
             </div>
         </nav>
 
         <div class="jumbotron hero jumbotron-fluid">
             <div class="container">
-              <h1>Census Survey Explorer</h1>
-              <h5>Discover Census Bureau surveys or censuses by name or description or by selecting frequency and / or geography levels.</h5>
-              <input id="quicksearch" placeholder="Search" type="text">
+                <h1>Census Survey Explorer</h1>
+                <h5>Discover Census Bureau surveys or censuses by name or description or by selecting frequency and / or geography levels.</h5>
+                <input id="quicksearch" placeholder="Search" type="text">
             </div>
         </div>
 
@@ -54,7 +57,7 @@
                             <li><input type="checkbox" id="Place" class="filterCheckbox" name="geo" /> Place</li>
                         </ul>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Learn More</a>
+                        <a class="dropdown-item" href="./geo.html">Learn More</a>
                     </div>
                 </div>
                 <div class="btn-group">
@@ -70,7 +73,7 @@
                             <li><input type="checkbox" id="Other" class="filterCheckbox" name="freq" /> Other</li>
                         </ul>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Learn More</a>
+                        <a class="dropdown-item" href="./freq.html">Learn More</a>
                     </div>
                 </div>
                 <div class="btn-group">
@@ -103,6 +106,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="assets/script.js"></script>
-        <!-- <script src="node_modules/airtable/build/airtable.browser.js"></script> -->
     </body>
 </html>
