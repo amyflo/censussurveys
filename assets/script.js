@@ -19,15 +19,17 @@ const processRecords = (err) => {
 records.forEach(function(record) {
     console.log('Retrieved ', record.get('Name'));
     freqs = record.get('Frequency').join(', ');
+    freqfilters = record.get('Frequency').join(' ');
     geos = record.get('Geography').join(', ');
     link = record.get('Link')
     text = record.get('Description');
     subtopics = record.get('Subtopics').join(', ');
+    subtopicfilters = record.get('Subtopics').join(' ');
     geofilters = createGeofilters(geos);
 
     // create cards
     var $card = $('<div/>', {
-        "class":'card mb-3 p-5' + freqs + ' ' +  geofilters
+        "class":'card mb-3 ' + freqfilters + ' ' +  geofilters + ' ' + subtopicfilters
     });
     
     var $cardBody = $('<div/>', {
@@ -116,4 +118,26 @@ function filterSearch(){
   } else {
     searchText(inputVal, $('.card'));
   }
+}
+
+// function to filter through checkboxes of a dropdown
+function filterCheckbox(ul, input) {
+    li = ul.getElementsByTagName("li");
+    filter = input.value.toUpperCase();
+    for (i = 0; i < li.length; i++) {
+        checkbox = li[i].innerHTML.replace(/<.*>/, '')
+        if (checkbox.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
+// filter through topics dropdown
+document.getElementById("topicsInput").onkeyup = searchTopics;
+function searchTopics() {
+    input = document.getElementById("topicsInput");
+    ul = document.getElementById("topics");
+    filterCheckbox(ul, input);
 }

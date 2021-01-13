@@ -72,7 +72,7 @@ div.scrollmenu {
   transition: 0.3s;
 }
 
-ul{
+.dropdown-menu ul{
   list-style-type: none;
   list-style-position: inside;
   padding-left: 10px;
@@ -100,7 +100,6 @@ ul{
 
 .card h5{
   color: #112E50 !important;
- 
 }
 
 .card h6{
