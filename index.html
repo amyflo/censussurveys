@@ -25,6 +25,9 @@
                     <a class="nav-link" href="./freq.html">Frequencies</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="./topics.html">Topics</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">Help</a>
                 </li>
                 <li class="nav-item">
@@ -38,7 +41,7 @@
             <div class="container">
                 <h1>Census Survey Explorer</h1>
                 <h5>Discover Census Bureau surveys or censuses by name or description or by selecting frequency and / or geography levels.</h5>
-                <input id="quicksearch" placeholder="Search" type="text">
+                <input id="quicksearch" placeholder="Search by survey name, frequency, geography, or topic" type="text">
             </div>
         </div>
 
@@ -49,15 +52,18 @@
                         Geographies
                         </button>
                     <div class="dropdown-menu">
+                        <a class="dropdown-item" href="./geo.html">Learn More</a>
+                        <div class="dropdown-divider"></div>
                         <ul>
                             <li><input type="checkbox" id="National" class="filterCheckbox" name="geo" /> National</li> 
                             <li><input type="checkbox" id="State" class="filterCheckbox" name="geo" /> State</li>
                             <li><input type="checkbox" id="Metro" class="filterCheckbox" name="geo" /> Metro Area</li>
                             <li><input type="checkbox" id="County" class="filterCheckbox" name="geo" /> County</li>
-                            <li><input type="checkbox" id="Place" class="filterCheckbox" name="geo" /> Place</li>
+                            <li><input type="checkbox" id="Place" class="filterCheckbox" name="geo" /> City/Town</li>
+                            <li><input type="checkbox" id="Zip" class="filterCheckbox" name="geo" /> Zip Code</li>
+                            <li><input type="checkbox" id="ZCTA" class="filterCheckbox" name="geo" /> ZCTA</li>
+                            <li><input type="checkbox" id="OtherGeo" class="filterCheckbox" name="geo" /> Other</li>
                         </ul>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="./geo.html">Learn More</a>
                     </div>
                 </div>
                 <div class="btn-group">
@@ -65,32 +71,43 @@
                         Frequencies
                     </button>
                     <div class="dropdown-menu">
+                        <a class="dropdown-item" href="./freq.html">Learn More</a>
+                        <div class="dropdown-divider"></div>
                         <ul>
-                            <li><input type="checkbox" id="Annual" class="filterCheckbox" name="freq" /> Annual</li> 
+                            <li><input type="checkbox" id="Annual" value="Annual" class="filterCheckbox" name="freq" /> Annual</li> 
                             <li><input type="checkbox" id="Quarterly" class="filterCheckbox" name="freq" /> Quarterly</li>
                             <li><input type="checkbox" id="Monthly" class="filterCheckbox" name="freq" /> Monthly</li>
                             <li><input type="checkbox" id="Decennial" class="filterCheckbox" name="freq" /> Decennial</li>
+                            <li><input type="checkbox" id="Quinquennial" class="filterCheckbox" name="freq" /> Quinquennial</li>
                             <li><input type="checkbox" id="Other" class="filterCheckbox" name="freq" /> Other</li>
                         </ul>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="./freq.html">Learn More</a>
                     </div>
                 </div>
                 <div class="btn-group">
                     <button class="btn btn-primary btn-sm dropdown-toggle"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Subtopics
+                        Topics
                         </button>
                         <div class="dropdown-menu">
+                            <input type="text" class="m-1 me-2" id="topicsInput" onkeyup="myFunction()" placeholder="Search topics" title="Type in a name">
+                            <a class="dropdown-item" href="#">Learn More</a>
+                            <div class="dropdown-divider"></div>
                             <h6 class="dropdown-header">Demographics</h6>
-                            <ul>
+                            <ul id="topics">
                                 <li><input type="checkbox" id="Age" class="filterCheckbox" name="topic" /> Age</li> 
                                 <li><input type="checkbox" id="Ancestry" class="filterCheckbox" name="topic" /> Ancestry</li>
+                                <li><input type="checkbox" id="Ethnicity" class="filterCheckbox" name="topic" /> Ethnicity</li>
+                                <li><input type="checkbox" id="Foreign" class="filterCheckbox" name="topic" /> Foreign Born</li>
+                                <li><input type="checkbox" id="Hispanic" class="filterCheckbox" name="topic" /> Hispanic Origin</li>
+                                <li><input type="checkbox" id="Marital" class="filterCheckbox" name="topic" /> Marital Status</li>
+                                <li><input type="checkbox" id="Race" class="filterCheckbox" name="topic" /> Race</li>
+                                <li><input type="checkbox" id="Relationship" class="filterCheckbox" name="topic" /> Relationship</li>
+                                <li><input type="checkbox" id="Sex" class="filterCheckbox" name="topic" /> Sex</li>
+
+
                                 <li><input type="checkbox" id="Business" class="filterCheckbox" name="topic" /> Business</li>
-                                <li><input type="checkbox" id="BusinessOwner" class="filterCheckbox" name="topic" /> Business Owner</li>
+                                <li><input type="checkbox" id="Owner" class="filterCheckbox" name="topic" /> Business Owner</li>
                                 <li><input type="checkbox" id="Children" class="filterCheckbox" name="topic" /> Children</li>
                             </ul>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Learn More</a>
                         </div>
                 </div>
 
@@ -106,5 +123,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="assets/script.js"></script>
+
+        <script>
+
+
+        </script>
     </body>
 </html>
