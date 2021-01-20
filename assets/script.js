@@ -1,6 +1,6 @@
 var Airtable = require('airtable')
-var filter = "";
-var base = new Airtable({apiKey: 'keyYJ7zM4UWu6RYdT'}).base('appAzdZwdzJzHt494');
+var base = new Airtable({apiKey: 'keyWfSmHAolRQJxTk'}).base('appAzdZwdzJzHt494');
+
 
 let records = []
 
@@ -15,39 +15,49 @@ const processRecords = (err) => {
   if (err) {
     console.error(err)
     return
-  }
+}
+  
+function createFilters(category, record){
+  recordText = record.get(category)
+  var text = recordText.join(', ');
+  var filter = recordText.map(str => str.replace(/\s/g, '')).join(' ');
+  return [text, filter.toLowerCase()];
+}
+
 records.forEach(function(record) {
-    console.log('Retrieved ', record.get('Name'));
-    freqs = record.get('Frequency').join(', ');
-    freqfilters = record.get('Frequency').join(' ');
-    geos = record.get('Geography').join(', ');
-    link = record.get('Link')
-    text = record.get('Description');
-    subtopics = record.get('Subtopics').join(', ');
-    subtopicfilters = record.get('Subtopics').join(' ');
-    geofilters = createGeofilters(geos);
+  // Card Text
+  title = record.get('Survey');
+  link = record.get('Link')
+  text = record.get('Description');
 
-    // create cards
-    var $card = $('<div/>', {
-        "class":'card mb-3 ' + freqfilters + ' ' +  geofilters + ' ' + subtopicfilters
-    });
-    
-    var $cardBody = $('<div/>', {
-      "class":'card-body'
-    });
+  // Filters
+  frequencies = createFilters('Frequency', record);
+  geos = createFilters('Geography', record);
+  topics = createFilters('Topic', record);
+  subtopics = createFilters('Subtopics', record);
 
-    var $cardDividers = $('<ul/>', {
-      "class": 'list-group list-group-flush'
-    });
+  // create cards
+  var $card = $('<div/>', {
+      "class":'card mb-3 ' + frequencies[1] + ' ' +  geos[1].replace('Other', 'OtherGeo') + ' ' + subtopics[1] + ' ' + topics[1] + ' '
+  });
+  
+  var $cardBody = $('<div/>', {
+    "class":'card-body'
+  });
 
-    $cardBody.append("<h5 class='card-title'>" + record.get('Survey').link(link) + "&nbsp;</h5>");
-    $cardBody.append($("<p class='card-text'>").text(record.get('Description')));
-    $card.append($cardBody);
+  var $cardDividers = $('<ul/>', {
+    "class": 'list-group list-group-flush'
+  });
 
-    $card.append($cardDividers);
-    $cardDividers.append("<li class='list-group-item'>" + '<b>Frequencies: </b>' + freqs + '&nbsp;</li>');
-    $cardDividers.append("<li class='list-group-item'>" + '<b>Geographies: </b>' + geos + '&nbsp;</li>');
-    $cardDividers.append("<li class='list-group-item'>" + '<b>Subtopics: </b>' + subtopics + '&nbsp;</li>');
+  $cardBody.append("<h5 class='card-title'>" + (title + ' →').link(link) + "</h5>");
+  $cardBody.append("<p class='card-text'>" + text + "</p>");
+  $card.append($cardBody);
+
+  $card.append($cardDividers);
+  $cardDividers.append("<li class='list-group-item'>" + '<b>Frequencies: </b>' + frequencies[0] + '&nbsp;</li>');
+  $cardDividers.append("<li class='list-group-item'>" + '<b>Geographies: </b>' + geos[0] + '&nbsp;</li>');
+  $cardDividers.append("<li class='list-group-item'>" + '<b>Topics: </b>' + topics[0] + '&nbsp;</li>');
+  $cardDividers.append("<li class='list-group-item'>" + '<b>Subtopics: </b>' + subtopics[0] + '&nbsp;</li>');
 
     $('#cards').append($card);
 });
@@ -56,88 +66,49 @@ records.forEach(function(record) {
 // selecting the base and appropriate fields
 base('Surveys').select({
     view: "Developer",
-    fields: ["Survey", "Description", "Link", "Frequency", "Geography", "Subtopics"],
+    fields: ["Survey", "Description", "Link", "Frequency", "Geography", "Subtopics", "Topic"]
 }).eachPage(processPage, processRecords)
 
-// create class name text  for the geography to match selectors
-function createGeofilters(geos){
-    geofilters = geos.replace("Block Group", "BlockGroup");
-    geofilters = geofilters.replace("Economic Place", "Economic");
-    geofilters = geofilters.replace("Metro Area", "Metro");
-    geofilters = geofilters.replace("Other", "OtherGeo");
-    geofilters = geofilters.replace(/,/g, '');
-    return geofilters;
-}
 
-// changing view from card columns to horizontal layout
-document.getElementById("viewChange").onclick = viewChange;
-function viewChange() {
-  var element = document.getElementById("cards");
-  element.classList.toggle("card-columns");
-}
 
-// uncheck all checkboxes and clear checked filters
-document.getElementById("uncheckAll").onclick = uncheckAll;
-function uncheckAll() {
-  $("input[type='checkbox']:checked").prop("checked", false)
-  filter = "";
-  filterSearch();
-}
+base('All').select({
+  // Selecting the first 3 records in Developer:
+  view: "Grid view",
+  fields: ["Filter", "Type", "Publish?"],
+}).eachPage(function page(records, fetchNextPage) {
+  // This function (`page`) will get called for each page of records.
 
-// add or remove filters on checkbox change
-$("#filterCards input").change(function() {
-  if ($(this).is(":checked")) {
-    filter = filter + "." + this.id;
-  } else {
-    filter = filter.replace("." + this.id, "");
-  }
-  filterSearch();
-})
+  records.forEach(function(record) {
+      recordText = record.get('Filter');
+      recordType = record.get('Type');
+      publish = record.get('Publish?');
+      var filter = recordText.replace(/\s/g, '').toLowerCase();
 
-// check whether inner text contains input
-function searchText(input, x){
-  for (i = 0; i < x.length; i++) { 
-    x[i].style.display = "inline-block";
-    var text = (x[i].textContent).toLowerCase();
-    if (!text.includes(input)){
-      x[i].style.display = "none";
-    }    
-  }
-}
-
-// hide or show cards based on filters
-document.getElementById("quicksearch").onkeyup = filterSearch;
-
-function filterSearch(){
-  var input = document.getElementById("quicksearch");
-  inputVal = input.value;
-  inputVal = inputVal.toLowerCase().trim();
-  if (filter){
-    $(".card").hide();
-    searchText(inputVal, $(filter));
-  } else {
-    searchText(inputVal, $('.card'));
-  }
-}
-
-// function to filter through checkboxes of a dropdown
-function filterCheckbox(ul, input) {
-    li = ul.getElementsByTagName("li");
-    filter = input.value.toUpperCase();
-    for (i = 0; i < li.length; i++) {
-        checkbox = li[i].innerHTML.replace(/<.*>/, '')
-        if (checkbox.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
+      var $card = "<li><input type='checkbox' id=" + 
+      filter + " class='filterCheckbox' /> " + recordText + "</li>";
+    
+      if (publish=="Yes"){
+        if (recordType == "Subtopics"){
+          $('#subtopicsFilters').append($card);
         }
-    }
-}
+        if (recordType == "Topics"){
+          $('#topicFilters').append($card);
+        }
+        if (recordType == "Geographies"){
+          $('#geographyFilters').append($card);
+        }
+        if (recordType == "Frequencies"){
+          $('#frequencyFilters').append($card);
+        }
+      }
+      console.log('#subtopicsFilters');
+  });
 
-// filter through topics dropdown
-document.getElementById("topicsInput").onkeyup = searchTopics;
-function searchTopics() {
-    input = document.getElementById("topicsInput");
-    ul = document.getElementById("topics");
-    filterCheckbox(ul, input);
-}
+  // To fetch the next page of records, call `fetchNextPage`.
+  // If there are more records, `page` will get called again.
+  // If there are no more records, `done` will get called.
+  fetchNextPage();
+
+}, function done(err) {
+  if (err) { console.error(err); return; }
+});
