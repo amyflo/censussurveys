@@ -40,14 +40,14 @@
         <div class="jumbotron hero jumbotron-fluid">
             <div class="container">
                 <h1>Census Survey Explorer</h1>
-                <h5>Discover U.S. Census Bureau surveys or censuses by filtering and searching with our tool.</h5>
-                <input id="quicksearch" placeholder="Search by survey name, frequency, geography, or topic" type="text">
+                <h5>Discover U.S. Census Bureau surveys or censuses by searching and filtering geography, frequency, topics, and subtopics.</h5>
+                <input id="quicksearch" placeholder="Search for a survey or by keyword" type="text">
             </div>
         </div>
 
         <div class="container mx-auto">
             <div id="filterCards" class="mb-3">
-                <div class="btn-group">
+                <div class="btn-group py-1">
                     <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Geographies
                         </button>
@@ -58,7 +58,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="btn-group">
+                <div class="btn-group py-1">
                     <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Frequencies
                     </button>
@@ -69,7 +69,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="btn-group">
+                <div class="btn-group  py-1">
                     <button class="btn btn-primary btn-sm dropdown-toggle"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Topics</button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="./topics.html">Learn More</a>
@@ -78,7 +78,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="btn-group">
+                <div class="btn-group  py-1">
                     <button class="btn btn-primary btn-sm dropdown-toggle"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subtopics</button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="./topics.html">Learn More</a>
@@ -91,10 +91,8 @@
                         </div>
                     </div>
                 </div>
-                
-
-                <button class="btn btn-outline-secondary btn-sm" id="viewChange">Change View</button>
-                <button class="btn btn-outline-secondary btn-sm" id="uncheckAll">Reset Filters</button>
+                <button class="btn btn-outline-secondary btn-sm py-1" id="viewChange">Change View</button>
+                <button class="btn btn-outline-secondary btn-sm py-1" id="uncheckAll">Reset Filters</button>
             </div>
             <div id="cards" class="card-columns">
             </div>
@@ -106,8 +104,5 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="assets/filters.js"></script>
         <script src="assets/script.js"></script>
-
-        <script>
-        </script>
     </body>
 </html>

@@ -111,3 +111,9 @@ div.scrollmenu {
   color: #4093A5 !important;
   border: 1px #4093A5 solid !important;
 }
+
+@media (max-width: 767.98px) {
+  #viewChange{
+    display: none;
+  }
+}
