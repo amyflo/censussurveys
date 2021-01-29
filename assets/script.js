@@ -75,10 +75,10 @@ base('Filters').select({
       recordText = record.get('Filter');
       recordType = record.get('Type');
       publish = record.get('Publish?');
-      var filter = recordText.replace(/\s/g, '').toLowerCase();
+      var filter = recordText.replace(/\s/g, '').replace("/", "").toLowerCase();
 
       var $card = "<li><input type='checkbox' id=" + 
-      filter + " class='filterCheckbox' /> " + recordText + "</li>";
+      filter + " value='" + recordText + "' title=" + recordText+ " class='filterCheckbox' /> " + recordText + "</li>";
     
       if (publish=="Yes"){
         if (recordType == "Subtopics"){
@@ -108,13 +108,13 @@ base('Filters').select({
   // This function (`page`) will get called for each page of records.
 
   records.forEach(function(record) {
-      recordText = record.get('Filter')
+      recordText = record.get('Filter');
       recordType = record.get('Type');
       publish = record.get('Publish?');
       var filter = recordText.replace(/\s/g, '').replace("/", "").toLowerCase()
 
       var $card = "<li><input type='checkbox' id=" + 
-      filter + " class='filterCheckbox' /> " + renameFilters(recordText) + "</li>";
+      filter + " value='" + renameFilters(recordText) + "' title=" + renameFilters(recordText) + " class='filterCheckbox' /> " + renameFilters(recordText) + "</li>";
     
       if (publish=="Yes"){
         if (recordType == "Geographies"){
