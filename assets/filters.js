@@ -7,34 +7,36 @@ function viewChange() {
   element.classList.toggle("card-columns");
 }
 
-// uncheck all checkboxes and clear checked filters
-document.getElementById("uncheckAll").onclick = uncheckAll;
-function uncheckAll() {
-  $("input[type='checkbox']:checked").prop("checked", false)
-  filter = "";
-  filterSearch();
-}
-
 // check whether inner text contains input
-function searchText(input, x){
-  for (i = 0; i < x.length; i++) { 
-    x[i].style.display = "inline-block";
-    var text = (x[i].textContent).toLowerCase();
-    if (!text.includes(input)){
-      x[i].style.display = "none";
-    }    
+function searchText(inputArray, x){
+  console.log(inputArray[0]);
+  for (i = 0; i < inputArray.length; i++){
+    for (j = 0; j < x.length; j++){
+      x[j].style.display = "none";
+      var text = (x[j].textContent).toLowerCase();
+      if (text.includes(inputArray[i])){
+        x[j].style.display = "inline-block";
+      }
+    }
   }
 }
 
-// // add or remove filters on btn-group click
+
+// add or remove filters on btn-group click
 $(".btn-group").click(function(){
-    filter = "";
-    var boxes = $(".filterCheckbox:checked");
-    for (var i = 0; i < boxes.length; i++ ) {
-        filter += ('.' + boxes[i].id);
-    }
-    filterSearch();
+  filter = "";
+  query = [];
+  $( "#filterPills" ).empty();
+  var boxes = $(".filterCheckbox:checked");
+  for (var i = 0; i < boxes.length; i++ ) {
+    filter += ('.' + boxes[i].id);
+    var $pill = "<span href='' class='filterpill badge badge-census m-1' id=" 
+    + boxes[i].id + " >" + boxes[i].value + "</span>";
+    $('#filterPills').append($pill);
+  }
+  filterSearch();
 });
+
 
 // hide or show cards based on filters
 document.getElementById("quicksearch").onkeyup = filterSearch;
@@ -42,11 +44,12 @@ function filterSearch(){
   var input = document.getElementById("quicksearch");
   inputVal = input.value;
   inputVal = inputVal.toLowerCase().trim();
+  inputArray = inputVal.split(" ")
   if (filter){
     $(".card").hide();
-    searchText(inputVal, $(filter));
+    searchText(inputArray, $(filter));
   } else {
-    searchText(inputVal, $('.card'));
+    searchText(inputArray, $('.card'));
   }
 }
 
@@ -73,3 +76,11 @@ function searchSubtopics() {
 }
 
 filterSearch();
+
+// // uncheck all checkboxes and clear checked filters
+// document.getElementById("uncheckAll").onclick = uncheckAll;
+// function uncheckAll() {
+//   $("input[type='checkbox']:checked").prop("checked", false)
+//   filter = "";
+//   filterSearch();
+// }

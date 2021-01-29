@@ -118,6 +118,7 @@ div.scrollmenu {
   }
 }
 
-footer{
-  color: white;
+.badge-census{
+  color: #4093A5;
+  border: 1px #4093A5 solid;
 }
