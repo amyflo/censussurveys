@@ -98,7 +98,7 @@ focus {
   height: 40px;
   padding: 2px 23px 2px 10px;
   outline: 0;
-  min-width: 450px;
+  width: 100%;
   size: 12px;
   background-color: #f5f5f5;
   transition: 0.3s;
@@ -158,14 +158,21 @@ focus {
     display: none;
   }
   #quicksearch {
-    width: 100% !important;
+    min-width: 90vw;
   }
   .navbar {
     padding: 5px !important;
   }
 }
 
+@media(min-width: 767.98px){
+  #quicksearch {
+    min-width: 450px;
+  }
+}
+
 .badge-census {
   color: #4093a5;
   border: 1px #4093a5 solid;
+  font-size: 18px !important;
 }
