@@ -38,65 +38,74 @@
             <div class="container">
                 <h1>Census Survey Explorer</h1>
                 <h5>Discover U.S. Census Bureau surveys or censuses by searching and filtering by geography, frequency, topics, and subtopics.</h5>
-                <input id="quicksearch" placeholder="Search for a survey by name or keyword" type="text">
+                <div class="row no-gutters">
+                    <div class="py-1 mr-2">
+                        <input id="quicksearch" placeholder="Search by name or keyword" type="text">
+                    </div>
+                    <div>
+                        <div id="filterCards">
+                            <div class="btn-group py-1">
+                                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Geographies
+                                    </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="./geo.html">Learn More</a>
+                                    <div class="dropdown-divider"></div>
+                                    <ul id="geographyFilters">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="btn-group py-1">
+                                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Frequencies
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="./freq.html">Learn More</a>
+                                    <div class="dropdown-divider"></div>
+                                    <ul id="frequencyFilters">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="btn-group py-1">
+                                <button class="btn btn-primary btn-sm dropdown-toggle"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Topics</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="./topics.html">Learn More</a>
+                                    <div class="dropdown-divider"></div>
+                                    <ul id="topicFilters">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="btn-group py-1">
+                                <button class="btn btn-primary btn-sm dropdown-toggle"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subtopics</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="./topics.html">Learn More</a>
+                                    <div class="dropdown-divider"></div>
+                                    <input type="text" class="m-1 me-2" id="topicsInput" placeholder="Search subtopics" title="Type in a name">
+                                    
+                                    <div id="subtopics">
+                                        <ul id="subtopicsFilters">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-secondary btn-sm"  id="uncheckAll">Reset Search</button>
+                        <button class="btn btn-outline-secondary btn-sm" id="viewChange">Change Layout</button>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="container mx-auto">
-            <div id="filterCards" class="mb-1">
-                <div class="btn-group py-1">
-                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Geographies
-                        </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="./geo.html">Learn More</a>
-                        <div class="dropdown-divider"></div>
-                        <ul id="geographyFilters">
-                        </ul>
-                    </div>
-                </div>
-                <div class="btn-group py-1">
-                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Frequencies
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="./freq.html">Learn More</a>
-                        <div class="dropdown-divider"></div>
-                        <ul id="frequencyFilters">
-                        </ul>
-                    </div>
-                </div>
-                <div class="btn-group  py-1">
-                    <button class="btn btn-primary btn-sm dropdown-toggle"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Topics</button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="./topics.html">Learn More</a>
-                        <div class="dropdown-divider"></div>
-                        <ul id="topicFilters">
-                        </ul>
-                    </div>
-                </div>
-                <div class="btn-group  py-1">
-                    <button class="btn btn-primary btn-sm dropdown-toggle"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subtopics</button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="./topics.html">Learn More</a>
-                        <div class="dropdown-divider"></div>
-                        <input type="text" class="m-1 me-2" id="topicsInput" placeholder="Search subtopics" title="Type in a name">
-                        
-                        <div id="subtopics">
-                            <ul id="subtopicsFilters">
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn btn-outline-secondary btn-sm py-1" id="viewChange">Change View</button>
-                <button class="btn btn-outline-secondary btn-sm py-1"  onclick="location.reload();">Reset Filters</button>
-            </div>
-            <div class="mb-1">
-                <h6 id="filterPillsLabel" class="d-inline-block">Selected filters: </h6>
-                <div id="filterPills" class="d-inline-block">
-                </div>
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                The Census Survey Explorer is designed as a reference to help users look for surveys. For data requests, please go to <a href="https://data.census.gov/cedsci/" class="alert-link">data.census.gov.</a>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             
+            <div id="filterPills" class="d-inline-block py-1">
+            </div>
             <div id="cards" class="card-columns">
             </div>
         </div>
