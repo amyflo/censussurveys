@@ -151,9 +151,9 @@ $(".btn-group").click(function () {
   var boxes = $(".filterCheckbox:checked");
 
   for (var i = 0; i < boxes.length; i++) {
-    filter += '.' + boxes[i].id;
+    filter += "." + boxes[i].id;
     var $pill = "<span href='' class='filterpill badge badge-census m-1' id=" + boxes[i].id + " >" + boxes[i].value + "</span>";
-    $('#filterPills').append($pill);
+    $("#filterPills").append($pill);
   }
 
   filterSearch();
@@ -171,7 +171,7 @@ function filterSearch() {
     $(".card").hide();
     searchText(inputArray, $(filter));
   } else {
-    searchText(inputArray, $('.card'));
+    searchText(inputArray, $(".card"));
   }
 } // function to filter through checkboxes of a dropdown
 
@@ -181,7 +181,7 @@ function filterCheckbox(div, input) {
   filter = input.value.toUpperCase();
 
   for (i = 0; i < li.length; i++) {
-    checkbox = li[i].innerHTML.replace(/<.*>/, '');
+    checkbox = li[i].innerHTML.replace(/<.*>/, "");
 
     if (checkbox.toUpperCase().indexOf(filter) > -1) {
       li[i].style.display = "";
@@ -200,13 +200,17 @@ function searchSubtopics() {
   filterCheckbox(div, input);
 }
 
-filterSearch(); // // uncheck all checkboxes and clear checked filters
-// document.getElementById("uncheckAll").onclick = uncheckAll;
-// function uncheckAll() {
-//   $("input[type='checkbox']:checked").prop("checked", false)
-//   filter = "";
-//   filterSearch();
-// }
+filterSearch(); // uncheck all checkboxes and clear checked filters
+
+document.getElementById("uncheckAll").onclick = uncheckAll;
+
+function uncheckAll() {
+  $("input[type='checkbox']:checked").prop("checked", false);
+  filter = "";
+  $("#filterPills").empty();
+  document.getElementById("quicksearch").value = "";
+  filterSearch();
+}
 },{}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -235,7 +239,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50782" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60842" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

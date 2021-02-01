@@ -1,114 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.e308ff8e.css">
     <title>Census Survey Explorer</title>
-    <script src="style.e308ff8e.js"></script></head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <img src="logo.ed8fc6de.jpg" width="100" class="mr-5 d-inline-block align-top" alt="U.S. Census Bureau">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+  <script src="style.e308ff8e.js"></script></head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <img src="logo.ed8fc6de.jpg" width="100" class="mr-5 d-inline-block align-top" alt="U.S. Census Bureau">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="geo.html">Geographies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="freq.html">Frequencies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="topics.html">Topics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="help.html">Help</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="jumbotron hero jumbotron-fluid">
+      <div class="container">
+        <h1>Census Survey Explorer</h1>
+        <h5>
+          Discover U.S. Census Bureau surveys or censuses by filtering and
+          searching by geography, frequency, topics, and subtopics.
+        </h5>
+        <div class="row no-gutters">
+          <div class="py-1 mr-2">
+            <input id="quicksearch" placeholder="Search by name or keyword" type="text">
+          </div>
+          <div>
+            <div id="filterCards">
+              <div class="btn-group py-1">
+                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Geographies
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="geo.html">Learn More</a>
+                  <div class="dropdown-divider"></div>
+                  <ul id="geographyFilters"></ul>
+                </div>
+              </div>
+              <div class="btn-group py-1">
+                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Frequencies
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="freq.html">Learn More</a>
+                  <div class="dropdown-divider"></div>
+                  <ul id="frequencyFilters"></ul>
+                </div>
+              </div>
+              <div class="btn-group py-1">
+                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Topics
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="topics.html">Learn More</a>
+                  <div class="dropdown-divider"></div>
+                  <ul id="topicFilters"></ul>
+                </div>
+              </div>
+              <div class="btn-group py-1">
+                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Subtopics
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="topics.html">Learn More</a>
+                  <div class="dropdown-divider"></div>
+                  <input type="text" class="m-1 me-2" id="topicsInput" placeholder="Search subtopics" title="Type in a name">
+
+                  <div id="subtopics">
+                    <ul id="subtopicsFilters"></ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-outline-secondary btn-sm" id="uncheckAll">
+              Reset Search
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="geo.html">Geographies</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="freq.html">Frequencies</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="topics.html">Topics</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="help.html">Help</a>
-                </li>
-                </ul>
-            </div>
-        </nav>
-
-        <div class="jumbotron hero jumbotron-fluid">
-            <div class="container">
-                <h1>Census Survey Explorer</h1>
-                <h5>Discover U.S. Census Bureau surveys or censuses by searching and filtering by geography, frequency, topics, and subtopics.</h5>
-                <input id="quicksearch" placeholder="Search for a survey by name or keyword" type="text">
-            </div>
+            <button class="btn btn-outline-secondary btn-sm" id="viewChange">
+              Change Layout
+            </button>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div class="container mx-auto">
-            <div id="filterCards" class="mb-1">
-                <div class="btn-group py-1">
-                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Geographies
-                        </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="geo.html">Learn More</a>
-                        <div class="dropdown-divider"></div>
-                        <ul id="geographyFilters">
-                        </ul>
-                    </div>
-                </div>
-                <div class="btn-group py-1">
-                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Frequencies
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="freq.html">Learn More</a>
-                        <div class="dropdown-divider"></div>
-                        <ul id="frequencyFilters">
-                        </ul>
-                    </div>
-                </div>
-                <div class="btn-group  py-1">
-                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Topics</button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="topics.html">Learn More</a>
-                        <div class="dropdown-divider"></div>
-                        <ul id="topicFilters">
-                        </ul>
-                    </div>
-                </div>
-                <div class="btn-group  py-1">
-                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subtopics</button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="topics.html">Learn More</a>
-                        <div class="dropdown-divider"></div>
-                        <input type="text" class="m-1 me-2" id="topicsInput" placeholder="Search subtopics" title="Type in a name">
-                        
-                        <div id="subtopics">
-                            <ul id="subtopicsFilters">
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn btn-outline-secondary btn-sm py-1" id="viewChange">Change View</button>
-                <button class="btn btn-outline-secondary btn-sm py-1" onclick="location.reload();">Reset Filters</button>
-            </div>
-            <div class="mb-1">
-                <h6 id="filterPillsLabel" class="d-inline-block">Selected filters: </h6>
-                <div id="filterPills" class="d-inline-block">
-                </div>
-            </div>
-            
-            <div id="cards" class="card-columns">
-            </div>
-        </div>
-        
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script src="filters.8829f353.js"></script>
-        <script src="script.b32fe510.js"></script>
+    <div class="container mx-auto">
+      <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        Use the geography, frequency, topic, and subtopic filters above to
+        discover surveys relevant to your needs. Use the tabs across the top of
+        this page to learn more and obtain guidance for using this tool. For
+        more details about a survey or to learn about data sources for a survey,
+        click on the survey name to go to the survey’s webpage. For data
+        requests, please go to
+        <a href="https://data.census.gov/cedsci/" class="alert-link">data.census.gov.
+        </a>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
 
-        <script>
-        </script>
-    </body>
+      <div id="filterPills" class="d-inline-block py-1"></div>
+      <div id="cards" class="card-columns"></div>
+    </div>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="filters.8829f353.js"></script>
+    <script src="script.b32fe510.js"></script>
+  </body>
 </html>
