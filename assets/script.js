@@ -40,7 +40,7 @@ base('Surveys').select({
       "class": 'list-group list-group-flush'
     });
   
-    $cardBody.append("<h5 class='card-title'>" + (title + ' →').link(link) + "</h5>");
+    $cardBody.append("<h5 class='card-title'><a target=_blank href=" + link + ">" + title + " →</a></h5>");
     $cardBody.append("<p class='card-text'>" + text + "</p>");
     $card.append($cardBody);
   

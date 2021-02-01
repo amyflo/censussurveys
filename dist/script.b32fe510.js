@@ -7249,7 +7249,7 @@ base('Surveys').select({
     var $cardDividers = $('<ul/>', {
       "class": 'list-group list-group-flush'
     });
-    $cardBody.append("<h5 class='card-title'>" + (title + ' →').link(link) + "</h5>");
+    $cardBody.append("<h5 class='card-title'><a target=_blank href=" + link + ">" + title + " →</a></h5>");
     $cardBody.append("<p class='card-text'>" + text + "</p>");
     $card.append($cardBody);
     $card.append($cardDividers);
@@ -7371,7 +7371,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50782" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52257" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -7548,4 +7548,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","assets/script.js"], null)
-//# sourceMappingURL=script.b32fe510.js.map
+//# sourceMappingURL=/script.b32fe510.js.map

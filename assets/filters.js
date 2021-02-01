@@ -77,10 +77,12 @@ function searchSubtopics() {
 
 filterSearch();
 
-// // uncheck all checkboxes and clear checked filters
-// document.getElementById("uncheckAll").onclick = uncheckAll;
-// function uncheckAll() {
-//   $("input[type='checkbox']:checked").prop("checked", false)
-//   filter = "";
-//   filterSearch();
-// }
+// uncheck all checkboxes and clear checked filters
+document.getElementById("uncheckAll").onclick = uncheckAll;
+function uncheckAll() {
+  $("input[type='checkbox']:checked").prop("checked", false)
+  filter = "";
+  $( "#filterPills" ).empty();
+  document.getElementById('quicksearch').value = "";
+  filterSearch();
+}
