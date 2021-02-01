@@ -37,6 +37,7 @@ nav li a {
   text-align: center;
   text-decoration: none;
   height: 40px !important;
+  min-width: 100px;
 }
 
 nav li a:hover:not(.active) {
