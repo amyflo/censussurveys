@@ -1,22 +1,22 @@
-body{
+body {
   margin: 0;
   animation: fadeInAnimation ease 2s;
-  animation-iteration-count: 1; 
-  animation-fill-mode: forwards; 
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
   font-family: Roboto;
 }
 
-@keyframes fadeInAnimation { 
-  0% { 
-      opacity: 0; 
-  } 
-  100% { 
-      opacity: 1; 
-   } 
-} 
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .navbar {
-  background: #112E50!important;
+  background: #112e50 !important;
   text-align: center;
   text-transform: uppercase;
   font-size: 14px;
@@ -26,35 +26,35 @@ body{
 .navbar-nav {
   list-style-type: none;
   overflow: hidden;
-  background-color: #182E4E;
+  background-color: #182e4e;
 }
 
 nav li a {
   display: block;
-  color:white;
+  color: white;
   padding: 30px;
-  border-top: 3px solid #182E4E;
+  border-top: 3px solid #182e4e;
   text-align: center;
   text-decoration: none;
   height: 40px !important;
 }
-    
+
 nav li a:hover:not(.active) {
-  color: #182E4E !important;
-  border-top: 3px solid rgb(255,86,33);
-  background-color: #E7EAED;
+  color: #182e4e !important;
+  border-top: 3px solid rgb(255, 86, 33);
+  background-color: #e7eaed;
   transition: 0.3s;
 }
 
 nav li a.active {
-  background-color: #13243E;
+  background-color: #13243e;
   border-top: 3px solid white;
   transition: 0.3s;
 }
 
 /* Hero */
-.jumbotron{
-  background-image: linear-gradient(to right, #337484, #182E4E);
+.jumbotron {
+  background-image: linear-gradient(to right, #337484, #182e4e);
   padding: 50px;
   color: white;
 }
@@ -64,29 +64,32 @@ div.scrollmenu {
   white-space: nowrap;
 }
 
-.btn-primary{
-  border: 1px #4093A5 solid !important;
-  background-color:#4093A5 !important;
+.btn-primary {
+  border: 1px #4093a5 solid !important;
+  background-color: #4093a5 !important;
   height: 40px;
 }
 
-.btn-primary:hover, active, focus{
-  border: 1px #4093A5 solid !important;
-  background:#337484 !important;
+.btn-primary:hover,
+active,
+focus {
+  border: 1px #4093a5 solid !important;
+  background: #337484 !important;
   transition: 0.3s;
 }
 
-.btn-outline-secondary{
-  border: 1px #7ECAD3 solid !important;
-  color: #7ECAD3 !important;
+.btn-outline-secondary {
+  border: 1px #7ecad3 solid !important;
+  color: #7ecad3 !important;
   height: 40px;
 }
 
-.btn-outline-secondary:hover, active, focus{
-  background: #4093A580 !important;
+.btn-outline-secondary:hover,
+active,
+focus {
+  background: #4093a580 !important;
   transition: 0.3s;
 }
-
 
 #quicksearch {
   border: 1px solid grey;
@@ -100,72 +103,71 @@ div.scrollmenu {
   transition: 0.3s;
 }
 
-#quicksearch:hover{
-  border: 4px solid #7ECAD3;
+#quicksearch:hover {
+  border: 4px solid #7ecad3;
   transition: 0.3s;
 }
 
-.dropdown-menu ul{
+.dropdown-menu ul {
   list-style-type: none;
   list-style-position: inside;
   padding-left: 10px;
 }
 
-.dropdown-menu{
-  max-height:200px;
-  overflow-y:auto;
+.dropdown-menu {
+  max-height: 200px;
+  overflow-y: auto;
 }
 
-.card{
+.card {
   width: 100%;
-  border: #4093A550 1px solid !important;
+  border: #4093a550 1px solid !important;
 }
 
 .card a {
-  color: #112E50 !important;
+  color: #112e50 !important;
   font-weight: 600;
 }
 
-.list-group-item{
-  border-color: #4093A530 !important;
-  background-color: #4093A510 !important;
+.list-group-item {
+  border-color: #4093a530 !important;
+  background-color: #4093a510 !important;
 }
 
-.card h5{
-  color: #112E50 !important;
+.card h5 {
+  color: #112e50 !important;
 }
 
-.card h6{
-  color: #4093A5 !important;
+.card h6 {
+  color: #4093a5 !important;
 }
 
-.alert-primary{
-  background-color:  #4093A530 !important;
-  color: #4093A5 !important;
-  border: 1px #4093A5 solid !important;
+.alert-primary {
+  background-color: #4093a530 !important;
+  color: #4093a5 !important;
+  border: 1px #4093a5 solid !important;
 }
 
-#filterCards{
+#filterCards {
   display: inline;
 }
 
 @media (max-width: 767.98px) {
-  #viewChange{
+  #viewChange {
     display: none;
   }
-  #quicksearch{
-    width:100% !important;
+  #quicksearch {
+    width: 100% !important;
   }
-  .navbar{
+  .navbar {
     padding: 5px !important;
   }
 }
 
-.badge-census{
-  color: #4093A5;
-  border: 1px #4093A5 solid;
+.badge-census {
+  color: #4093a5;
+  border: 1px #4093a5 solid;
 }
 
 
-
-/*# sourceMappingURL=/style.e308ff8e.css.map */
+/*# sourceMappingURL=style.e308ff8e.css.map */

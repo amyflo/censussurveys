@@ -7208,13 +7208,13 @@ function () {
 
 module.exports = Airtable;
 },{"./base":"node_modules/airtable/lib/base.js","./record":"node_modules/airtable/lib/record.js","./table":"node_modules/airtable/lib/table.js","./airtable_error":"node_modules/airtable/lib/airtable_error.js"}],"assets/script.js":[function(require,module,exports) {
-var Airtable = require('airtable');
+var Airtable = require("airtable");
 
 var base = new Airtable({
-  apiKey: 'keyWfSmHAolRQJxTk'
-}).base('appAzdZwdzJzHt494'); // Alphabetized survey selections & creating cards
+  apiKey: "keyWfSmHAolRQJxTk"
+}).base("appAzdZwdzJzHt494"); // Alphabetized survey selections & creating cards
 
-base('Surveys').select({
+base("Surveys").select({
   // Selecting the first 3 records in Developer:
   view: "Developer",
   fields: ["Survey", "Description", "Link", "Frequency", "Geography", "Subtopics", "Topic"]
@@ -7222,42 +7222,42 @@ base('Surveys').select({
   // This function (`page`) will get called for each page of records.
   function createFilters(category, record) {
     recordText = record.get(category);
-    var text = recordText.join(', ');
+    var text = recordText.join(", ");
     var filter = recordText.map(function (str) {
-      return str.replace(/\s/g, '');
-    }).join(' ').replace("/", "");
+      return str.replace(/\s/g, "");
+    }).join(" ").replace("/", "");
     return [renameFilters(text), filter.toLowerCase()];
   }
 
   records.forEach(function (record) {
     // Card Text
-    title = record.get('Survey');
-    link = record.get('Link');
-    text = record.get('Description'); // Filters
+    title = record.get("Survey");
+    link = record.get("Link");
+    text = record.get("Description"); // Filters
 
-    frequencies = createFilters('Frequency', record);
-    geos = createFilters('Geography', record);
-    topics = createFilters('Topic', record);
-    subtopics = createFilters('Subtopics', record); // create cards
+    frequencies = createFilters("Frequency", record);
+    geos = createFilters("Geography", record);
+    topics = createFilters("Topic", record);
+    subtopics = createFilters("Subtopics", record); // create cards
 
-    var $card = $('<div/>', {
-      "class": 'card mb-3 ' + frequencies[1] + ' ' + geos[1] + ' ' + subtopics[1] + ' ' + topics[1] + ' '
+    var $card = $("<div/>", {
+      class: "card mb-3 " + frequencies[1] + " " + geos[1] + " " + subtopics[1] + " " + topics[1] + " "
     });
-    var $cardBody = $('<div/>', {
-      "class": 'card-body'
+    var $cardBody = $("<div/>", {
+      class: "card-body"
     });
-    var $cardDividers = $('<ul/>', {
-      "class": 'list-group list-group-flush'
+    var $cardDividers = $("<ul/>", {
+      class: "list-group list-group-flush"
     });
     $cardBody.append("<h5 class='card-title'><a target='_blank' href=" + link + ">" + title + " →</a></h5>");
     $cardBody.append("<p class='card-text'>" + text + "</p>");
     $card.append($cardBody);
     $card.append($cardDividers);
-    $cardDividers.append("<li class='list-group-item'>" + '<b>Frequencies: </b>' + frequencies[0] + '&nbsp;</li>');
-    $cardDividers.append("<li class='list-group-item'>" + '<b>Geographies: </b>' + geos[0] + '&nbsp;</li>');
-    $cardDividers.append("<li class='list-group-item'>" + '<b>Topics: </b>' + topics[0] + '&nbsp;</li>');
-    $cardDividers.append("<li class='list-group-item'>" + '<b>Subtopics: </b>' + subtopics[0] + '&nbsp;</li>');
-    $('#cards').append($card);
+    $cardDividers.append("<li class='list-group-item'>" + "<b>Frequencies: </b>" + frequencies[0] + "&nbsp;</li>");
+    $cardDividers.append("<li class='list-group-item'>" + "<b>Geographies: </b>" + geos[0] + "&nbsp;</li>");
+    $cardDividers.append("<li class='list-group-item'>" + "<b>Topics: </b>" + topics[0] + "&nbsp;</li>");
+    $cardDividers.append("<li class='list-group-item'>" + "<b>Subtopics: </b>" + subtopics[0] + "&nbsp;</li>");
+    $("#cards").append($card);
   }); // To fetch the next page of records, call `fetchNextPage`.
   // If there are more records, `page` will get called again.
   // If there are no more records, `done` will get called.
@@ -7270,26 +7270,26 @@ base('Surveys').select({
   }
 }); // Alphabetized topics and subtopics
 
-base('Filters').select({
+base("Filters").select({
   // Selecting the first 3 records in Developer:
   view: "Topics",
   fields: ["Filter", "Type", "Publish?"]
 }).eachPage(function page(records, fetchNextPage) {
   // This function (`page`) will get called for each page of records.
   records.forEach(function (record) {
-    recordText = record.get('Filter');
-    recordType = record.get('Type');
-    publish = record.get('Publish?');
-    var filter = recordText.replace(/\s/g, '').replace("/", "").toLowerCase();
+    recordText = record.get("Filter");
+    recordType = record.get("Type");
+    publish = record.get("Publish?");
+    var filter = recordText.replace(/\s/g, "").replace("/", "").toLowerCase();
     var $card = "<li><input type='checkbox' id=" + filter + " value='" + recordText + "' title=" + recordText + " class='filterCheckbox' /> " + recordText + "</li>";
 
     if (publish == "Yes") {
       if (recordType == "Subtopics") {
-        $('#subtopicsFilters').append($card);
+        $("#subtopicsFilters").append($card);
       }
 
       if (recordType == "Topics") {
-        $('#topicFilters').append($card);
+        $("#topicFilters").append($card);
       }
     }
   }); // To fetch the next page of records, call `fetchNextPage`.
@@ -7304,26 +7304,26 @@ base('Filters').select({
   }
 }); // Unalphabetized geographies and frequencies
 
-base('Filters').select({
+base("Filters").select({
   // Selecting the first 3 records in Developer:
   view: "Geos & Freqs",
   fields: ["Filter", "Type", "Publish?"]
 }).eachPage(function page(records, fetchNextPage) {
   // This function (`page`) will get called for each page of records.
   records.forEach(function (record) {
-    recordText = record.get('Filter');
-    recordType = record.get('Type');
-    publish = record.get('Publish?');
-    var filter = recordText.replace(/\s/g, '').replace("/", "").toLowerCase();
+    recordText = record.get("Filter");
+    recordType = record.get("Type");
+    publish = record.get("Publish?");
+    var filter = recordText.replace(/\s/g, "").replace("/", "").toLowerCase();
     var $card = "<li><input type='checkbox' id=" + filter + " value='" + renameFilters(recordText) + "' title=" + renameFilters(recordText) + " class='filterCheckbox' /> " + renameFilters(recordText) + "</li>";
 
     if (publish == "Yes") {
       if (recordType == "Geographies") {
-        $('#geographyFilters').append($card);
+        $("#geographyFilters").append($card);
       }
 
       if (recordType == "Frequencies") {
-        $('#frequencyFilters').append($card);
+        $("#frequencyFilters").append($card);
       }
     }
   }); // To fetch the next page of records, call `fetchNextPage`.
@@ -7339,8 +7339,8 @@ base('Filters').select({
 });
 
 function renameFilters(text) {
-  text = text.replace('Other Geos', 'Other');
-  text = text.replace('Other Freqs', 'Other');
+  text = text.replace("Other Geos", "Other");
+  text = text.replace("Other Freqs", "Other");
   return text;
 }
 },{"airtable":"node_modules/airtable/lib/airtable.js"}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -7371,7 +7371,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52257" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60842" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -7548,4 +7548,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","assets/script.js"], null)
-//# sourceMappingURL=/script.b32fe510.js.map
+//# sourceMappingURL=script.b32fe510.js.map
