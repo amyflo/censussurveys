@@ -7249,7 +7249,7 @@ base('Surveys').select({
     var $cardDividers = $('<ul/>', {
       "class": 'list-group list-group-flush'
     });
-    $cardBody.append("<h5 class='card-title'><a target=_blank href=" + link + ">" + title + " →</a></h5>");
+    $cardBody.append("<h5 class='card-title'><a target='_blank' href=" + link + ">" + title + " →</a></h5>");
     $cardBody.append("<p class='card-text'>" + text + "</p>");
     $card.append($cardBody);
     $card.append($cardDividers);
