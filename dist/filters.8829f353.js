@@ -118,19 +118,14 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"assets/filters.js":[function(require,module,exports) {
-var filter = ""; // changing view from card columns to horizontal layout
-
-document.getElementById("viewChange").onclick = viewChange;
-
-function viewChange() {
-  var element = document.getElementById("cards");
-  element.classList.toggle("card-columns");
-} // check whether inner text contains input
-
+var filter = "";
+/**
+ * Searches text in each card by iterating through words in 
+ * inputArray. Converts each card to text and shows 
+ * card if any word in inputArray is present in card. 
+ */
 
 function searchText(inputArray, x) {
-  console.log(inputArray[0]);
-
   for (i = 0; i < inputArray.length; i++) {
     for (j = 0; j < x.length; j++) {
       x[j].style.display = "none";
@@ -141,13 +136,19 @@ function searchText(inputArray, x) {
       }
     }
   }
-} // add or remove filters on btn-group click
+}
+/**
+ * Whenever btn-group is clicked, writes into local variable filter
+ * all the filters that are selected to use in filterSearch function. 
+ * Shows the selected filters as pills below the hero and 
+ * calls on filterSearch function to refilter surveys. 
+ */
 
 
 $(".btn-group").click(function () {
   filter = "";
-  query = [];
-  $("#filterPills").empty();
+  $("#filterPills").empty(); // clears filter pills from screen
+
   var boxes = $(".filterCheckbox:checked");
 
   for (var i = 0; i < boxes.length; i++) {
@@ -157,7 +158,13 @@ $(".btn-group").click(function () {
   }
 
   filterSearch();
-}); // hide or show cards based on filters
+});
+/**
+ * Whenever an input onkeyup is in the searchbar or a checkbox is checked 
+ * (see above btn-group function), creates an array of all words in 
+ * the input and calls on searchText to show/hide cards that is 
+ * concatted with filter text written in above function. 
+ */
 
 document.getElementById("quicksearch").onkeyup = filterSearch;
 
@@ -173,7 +180,10 @@ function filterSearch() {
   } else {
     searchText(inputArray, $(".card"));
   }
-} // function to filter through checkboxes of a dropdown
+}
+/**
+ * Filters and shows/hides checkboxes in a list. 
+ */
 
 
 function filterCheckbox(div, input) {
@@ -189,7 +199,11 @@ function filterCheckbox(div, input) {
       li[i].style.display = "none";
     }
   }
-} // filter through topics dropdown
+}
+/**
+ * Calls on filterCheckbox to show/hide 
+ * filters in "Subtopics" based on user's input in the searchbar. 
+ */
 
 
 document.getElementById("topicsInput").onkeyup = searchSubtopics;
@@ -199,8 +213,11 @@ function searchSubtopics() {
   div = document.getElementById("subtopics");
   filterCheckbox(div, input);
 }
+/**
+ * Resets the search input, filters selected, and pills
+ * on the page and clears all previous selected.  
+ */
 
-filterSearch(); // uncheck all checkboxes and clear checked filters
 
 document.getElementById("uncheckAll").onclick = uncheckAll;
 
@@ -210,6 +227,17 @@ function uncheckAll() {
   $("#filterPills").empty();
   document.getElementById("quicksearch").value = "";
   filterSearch();
+}
+/**
+ * Toggles view from card columns of three to horizontal layout. 
+ */
+
+
+document.getElementById("viewChange").onclick = viewChange;
+
+function viewChange() {
+  var element = document.getElementById("cards");
+  element.classList.toggle("card-columns");
 }
 },{}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -239,7 +267,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64125" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51734" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -416,4 +444,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","assets/filters.js"], null)
-//# sourceMappingURL=filters.8829f353.js.map
+//# sourceMappingURL=/filters.8829f353.js.map

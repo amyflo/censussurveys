@@ -3,10 +3,24 @@ var base = new Airtable({ apiKey: "keyWfSmHAolRQJxTk" }).base(
   "appAzdZwdzJzHt494"
 );
 
-// Alphabetized survey selections & creating cards
+/**
+ * Handles edge case "Other", where the card's tag in
+ * Airtable is different than the text shown on the card. 
+ */
+function renameFilters(text) {
+  text = text.replace("Other Geos", "Other");
+  text = text.replace("Other Freqs", "Other");
+  return text;
+}
+
+/**
+ * Creates alphabetized survey cards on homepage
+ * using Airtable API. For each card, writes the selected filters
+ * into the body copy and writes them as class names for use in filtering. 
+ */
 base("Surveys")
   .select({
-    // Selecting the first 3 records in Developer:
+    // Selecting the Developer view on the base and specific fields:
     view: "Developer",
     fields: [
       "Survey",
@@ -21,29 +35,37 @@ base("Surveys")
   .eachPage(
     function page(records, fetchNextPage) {
       // This function (`page`) will get called for each page of records.
-
+      
+      /**
+       *  Creates an array of two variables, with the 
+       * first being the card's text for the category
+       * and the second being the filtered version of the text
+       * to write into each survey's card's classes. 
+       */ 
       function createFilters(category, record) {
         recordText = record.get(category);
         var text = recordText.join(", ");
         var filter = recordText
           .map((str) => str.replace(/\s/g, ""))
           .join(" ")
-          .replace("/", "");
-        return [renameFilters(text), filter.toLowerCase()];
+          .replace("/", "")
+          .toLowerCase();
+        return [renameFilters(text), filter];
       }
+
       records.forEach(function (record) {
-        // Card Text
+        // Card Title and Description
         title = record.get("Survey");
         link = record.get("Link");
         text = record.get("Description");
 
-        // Filters
+        // Creating filters and record text
         frequencies = createFilters("Frequency", record);
         geos = createFilters("Geography", record);
         topics = createFilters("Topic", record);
         subtopics = createFilters("Subtopics", record);
 
-        // create cards
+        // Creating parent card
         var $card = $("<div/>", {
           class:
             "card mb-3 " +
@@ -57,14 +79,17 @@ base("Surveys")
             " ",
         });
 
+        // Creating card body
         var $cardBody = $("<div/>", {
           class: "card-body",
         });
 
+        // Creating card dividers
         var $cardDividers = $("<ul/>", {
           class: "list-group list-group-flush",
         });
 
+        // Appending card and card body with text and title
         $cardBody.append(
           "<h5 class='card-title'><a target='_blank' href=" +
             link +
@@ -75,6 +100,7 @@ base("Surveys")
         $cardBody.append("<p class='card-text'>" + text + "</p>");
         $card.append($cardBody);
 
+        // Appending card dividers with filters information
         $card.append($cardDividers);
         $cardDividers.append(
           "<li class='list-group-item'>" +
@@ -100,7 +126,7 @@ base("Surveys")
             subtopics[0] +
             "&nbsp;</li>"
         );
-
+        // Appending to the home page #cards
         $("#cards").append($card);
       });
 
@@ -117,10 +143,13 @@ base("Surveys")
     }
   );
 
-// Alphabetized topics and subtopics
+/**
+ * Creates alphabetized filter dropdowns for "Topics" view for 
+ * subtopics and topics dropdowns. For each filter, creates a checkbox and 
+ * sorts and appends them to the appropriate dropdown. 
+ */
 base("Filters")
   .select({
-    // Selecting the first 3 records in Developer:
     view: "Topics",
     fields: ["Filter", "Type", "Publish?"],
   })
@@ -137,7 +166,7 @@ base("Filters")
           .replace("/", "")
           .toLowerCase();
 
-        var $card =
+        var $checkbox =
           "<li><input type='checkbox' id=" +
           filter +
           " value='" +
@@ -150,10 +179,10 @@ base("Filters")
 
         if (publish == "Yes") {
           if (recordType == "Subtopics") {
-            $("#subtopicsFilters").append($card);
+            $("#subtopicsFilters").append($checkbox);
           }
           if (recordType == "Topics") {
-            $("#topicFilters").append($card);
+            $("#topicFilters").append($checkbox);
           }
         }
       });
@@ -171,7 +200,11 @@ base("Filters")
     }
   );
 
-// Unalphabetized geographies and frequencies
+/**
+ * Creates unalphabetized filter dropdowns for "Geos & Freqs" view for 
+ * frequency and geography dropdowns. For each filter, creates a checkbox and 
+ * sorts and appends them to the appropriate dropdown. 
+ */
 base("Filters")
   .select({
     // Selecting the first 3 records in Developer:
@@ -191,7 +224,7 @@ base("Filters")
           .replace("/", "")
           .toLowerCase();
 
-        var $card =
+        var $checkbox =
           "<li><input type='checkbox' id=" +
           filter +
           " value='" +
@@ -204,10 +237,10 @@ base("Filters")
 
         if (publish == "Yes") {
           if (recordType == "Geographies") {
-            $("#geographyFilters").append($card);
+            $("#geographyFilters").append($checkbox);
           }
           if (recordType == "Frequencies") {
-            $("#frequencyFilters").append($card);
+            $("#frequencyFilters").append($checkbox);
           }
         }
       });
@@ -224,9 +257,3 @@ base("Filters")
       }
     }
   );
-
-function renameFilters(text) {
-  text = text.replace("Other Geos", "Other");
-  text = text.replace("Other Freqs", "Other");
-  return text;
-}
