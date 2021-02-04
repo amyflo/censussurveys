@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.e308ff8e.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <title>Census Survey Explorer</title>
   <script src="style.e308ff8e.js"></script></head>
   <body>
+    <!---NAVIGATION-->
     <nav class="navbar navbar-expand-lg navbar-dark">
       <img src="logo.ed8fc6de.jpg" width="100" class="mr-5 d-inline-block align-top" alt="U.S. Census Bureau">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +27,7 @@
             <a class="nav-link" href="freq.html">Frequencies</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="topics.html">Topics</a>
+            <a class="nav-link" href="topics.html">Topics & Subtopics</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="help.html">Help</a>
@@ -33,7 +35,9 @@
         </ul>
       </div>
     </nav>
+    <!---NAVIGATION-->
 
+    <!---HERO-->
     <div class="jumbotron hero jumbotron-fluid mb-4">
       <div class="container">
         <h1>Census Survey Explorer</h1>
@@ -41,10 +45,13 @@
           Discover U.S. Census Bureau surveys or censuses by filtering and
           searching by geography, frequency, topics, and subtopics.
         </h5>
+        <!---FILTERING TOOLS-->
         <div class="row no-gutters">
+          <!---SEARCHBAR-->
           <div class="py-1 mr-2">
             <input id="quicksearch" placeholder="Search by name or keyword" type="text">
           </div>
+          <!---DROPDOWNS-->
           <div>
             <div id="filterCards">
               <div class="btn-group py-1">
@@ -85,13 +92,13 @@
                   <a class="dropdown-item" href="topics.html">Learn More</a>
                   <div class="dropdown-divider"></div>
                   <input type="text" class="m-1 me-2" id="topicsInput" placeholder="Search subtopics" title="Type in a name">
-
                   <div id="subtopics">
                     <ul id="subtopicsFilters"></ul>
                   </div>
                 </div>
               </div>
             </div>
+            <!---SPECIAL BUTTONS-->
             <button class="btn btn-outline-secondary btn-sm" id="uncheckAll">
               Reset Search
             </button>
@@ -100,30 +107,43 @@
             </button>
           </div>
         </div>
+        <!---FILTERING TOOLS-->
       </div>
     </div>
+    <!---HERO-->
 
+    <!---MAIN CONTAINER-->
     <div class="container mx-auto">
-      <div id="filterPills" class="d-inline-block pb-1"></div>
+      <!---FILTER PILLS-->
+      <div id="filterPills" class="d-inline-block pb-1">
+        <!---Written using javascript function in filters.js based on selected checkboxes-->
+      </div>
+      <!---CLOSABLE ALERT & INSTRUCTIONS-->
       <div class="alert alert-primary alert-dismissible fade show" role="alert">
         Use the geography, frequency, topic, and subtopic filters above to
-        discover surveys relevant to your needs. Use the tabs across the top of
-        this page to learn more and obtain guidance for using this tool. For
-        more details about a survey or to learn about data sources for a survey,
-        click on the survey name to go to the survey’s webpage.
+        discover surveys relevant to your needs.
+        <br>Use the tabs across the top of this page to learn more and obtain
+        guidance for using this tool. <br>For more details about a survey or
+        to learn about data sources for a survey, click on the survey name to go
+        to the survey’s webpage.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-
-      <div id="cards" class="card-columns"></div>
+      <!---SURVEY CARDS-->
+      <div id="cards" class="card-columns">
+        <!---Written using Airtable API in scripts.js-->
+      </div>
     </div>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!--JQUERY-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- BOOTSTRAP-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="filters.8829f353.js"></script>
+    <!--General Functions-->
     <script src="script.b32fe510.js"></script>
+    <!--Airtable API Functions-->
   </body>
 </html>
