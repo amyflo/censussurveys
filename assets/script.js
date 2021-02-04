@@ -32,7 +32,7 @@ base("Surveys")
       "Topic",
     ],
   })
-  .eachPage(
+  .eachPage( // each page is equivalent to 100 records
     function page(records, fetchNextPage) {
       // This function (`page`) will get called for each page of records.
       

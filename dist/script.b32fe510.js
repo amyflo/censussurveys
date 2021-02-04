@@ -7234,7 +7234,8 @@ base("Surveys").select({
   // Selecting the Developer view on the base and specific fields:
   view: "Developer",
   fields: ["Survey", "Description", "Link", "Frequency", "Geography", "Subtopics", "Topic"]
-}).eachPage(function page(records, fetchNextPage) {
+}).eachPage( // each page is equivalent to 100 records
+function page(records, fetchNextPage) {
   // This function (`page`) will get called for each page of records.
 
   /**
@@ -7402,7 +7403,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51734" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55881" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

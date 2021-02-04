@@ -28,7 +28,7 @@ $(".btn-group").click(function () {
   $("#filterPills").empty(); // clears filter pills from screen
   var boxes = $(".filterCheckbox:checked");
   for (var i = 0; i < boxes.length; i++) {
-    filter += "." + boxes[i].id;
+    filter += "." + boxes[i].id; // adds a id of a checkbox to the filter
     var $pill =
       "<span href='' class='filterpill badge badge-census m-1' id=" +
       boxes[i].id +
@@ -52,7 +52,7 @@ function filterSearch() {
   inputVal = input.value;
   inputVal = inputVal.toLowerCase().trim();
   inputArray = inputVal.split(" ");
-  if (filter) {
+  if (filter) { // filter shows up as ".classname1 .classname2 .classname3"
     $(".card").hide();
     searchText(inputArray, $(filter));
   } else {
@@ -88,6 +88,16 @@ function searchSubtopics() {
 }
 
 /**
+ * Shows all checkboxes inside the subtopic dropdown.  
+ */
+function showCheckbox(div) {
+  li = div.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+    li[i].style.display = "";
+  }
+}
+
+/**
  * Resets the search input, filters selected, and pills
  * on the page and clears all previous selected.  
  */
@@ -96,6 +106,9 @@ function uncheckAll() {
   $("input[type='checkbox']:checked").prop("checked", false);
   filter = "";
   $("#filterPills").empty();
+  div = document.getElementById("subtopics");
+  document.getElementById("topicsInput").value = "";
+  showCheckbox(div);
   document.getElementById("quicksearch").value = "";
   filterSearch();
 }

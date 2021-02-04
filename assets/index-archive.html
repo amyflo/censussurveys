@@ -1,144 +1,182 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css"/>
-  <title>Find a Survey from the U.S. Census Bureau</title>
-</head>
-<body>
-  
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Find a Survey from the U.S. Census Bureau</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <img
+        src="assets/logo.jpg"
+        width="100"
+        class="mr-5 d-inline-block align-top"
+        alt="U.S. Census Bureau"
+      />
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Geographies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="mailto:amy.lo@census.gov">Feedback</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <img src="assets/logo.jpg" width="100" class="mr-5 d-inline-block align-top" alt="U.S. Census Bureau">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Geographies</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Help</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="mailto:amy.lo@census.gov">Feedback</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="jumbotron hero jumbotron-fluid">
-    <div class="container">
-      <h1>Census Survey Explorer</h1>
-      <h5>Discover Census Bureau surveys or censuses by name or description or by selecting frequency and / or geography levels.</h5>
-      <input class="quicksearch" placeholder="Search" type="text">
-    </div>
-  </div>
-
-  <div class="container mx-auto">
-    <section class="my-3">
-    <h5>Frequency</h5>
-    <div class="radio-toolbar btn-group">
-        <input type="radio" id="allfreq" name="frequency" value=".allfreq" checked>
-        <label for="allfreq">All</label>
-
-        <input type="radio" id="annual" name="frequency" value=".Annual">
-        <label for="annual">Annual</label>
-    
-        <input type="radio" id="Quarterly" name="frequency" value=".Quarterly">
-        <label for="Quarterly">Quarterly</label>
-
-        <input type="radio" id="Monthly" name="frequency" value=".Monthly">
-        <label for="Monthly">Monthly</label>
-    
-        <input type="radio" id="Decennial" name="frequency" value=".Decennial">
-        <label for="Decennial">Decennial</label> 
-        
-        <input type="radio" id="Other" name="frequency" value=".Other">
-        <label for="Other">Other</label> 
-    </div>
-  </section>
-  <section class="my-3">
-    <h5>Geography</h5>
-    <div>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary">
-          <input type="checkbox" name="geography" value=".National"> National
-        </label>
-      </div>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary">
-          <input type="checkbox" value=".State"> State
-        </label>
-      </div>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary">
-          <input type="checkbox" value=".Metro">Metro Area
-        </label>
-      </div>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary">
-          <input type="checkbox" value=".County"> County
-        </label>
-      </div>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary">
-          <input type="checkbox" value=".Place"> Place
-        </label>
-      </div>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary">
-          <input type="checkbox" value=".ZCTA"> ZCTA
-        </label>
-      </div>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary">
-          <input type="checkbox" value=".Zip"> Zip Code
-        </label>
-      </div>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary">
-          <input type="checkbox" value=".Tract"> Census Tract
-        </label>
-      </div>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary">
-          <input type="checkbox" value=".Block"> Block
-        </label>
-      </div>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary">
-          <input type="checkbox" value=".BlockGroup"> Block Group
-        </label>
-      </div>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary">
-          <input type="checkbox" value=".Economic"> Economic Place
-        </label>
-      </div>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary">
-            <input type="checkbox" value=".OtherGeo"> Other
-          </label>
+    <div class="jumbotron hero jumbotron-fluid">
+      <div class="container">
+        <h1>Census Survey Explorer</h1>
+        <h5>
+          Discover Census Bureau surveys or censuses by name or description or
+          by selecting frequency and / or geography levels.
+        </h5>
+        <input class="quicksearch" placeholder="Search" type="text" />
       </div>
     </div>
-    </section>
 
-    <div class="card-columns" id="grid"></div>
-  </div>
+    <div class="container mx-auto">
+      <section class="my-3">
+        <h5>Frequency</h5>
+        <div class="radio-toolbar btn-group">
+          <input
+            type="radio"
+            id="allfreq"
+            name="frequency"
+            value=".allfreq"
+            checked
+          />
+          <label for="allfreq">All</label>
 
-<!--SCRIPTS-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script src="https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="assets/script.js"></script>
-<!--SCRIPTS-->
-</body>
+          <input type="radio" id="annual" name="frequency" value=".Annual" />
+          <label for="annual">Annual</label>
+
+          <input
+            type="radio"
+            id="Quarterly"
+            name="frequency"
+            value=".Quarterly"
+          />
+          <label for="Quarterly">Quarterly</label>
+
+          <input type="radio" id="Monthly" name="frequency" value=".Monthly" />
+          <label for="Monthly">Monthly</label>
+
+          <input
+            type="radio"
+            id="Decennial"
+            name="frequency"
+            value=".Decennial"
+          />
+          <label for="Decennial">Decennial</label>
+
+          <input type="radio" id="Other" name="frequency" value=".Other" />
+          <label for="Other">Other</label>
+        </div>
+      </section>
+      <section class="my-3">
+        <h5>Geography</h5>
+        <div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+              <input type="checkbox" name="geography" value=".National" />
+              National
+            </label>
+          </div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+              <input type="checkbox" value=".State" /> State
+            </label>
+          </div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+              <input type="checkbox" value=".Metro" />Metro Area
+            </label>
+          </div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+              <input type="checkbox" value=".County" /> County
+            </label>
+          </div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+              <input type="checkbox" value=".Place" /> Place
+            </label>
+          </div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+              <input type="checkbox" value=".ZCTA" /> ZCTA
+            </label>
+          </div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+              <input type="checkbox" value=".Zip" /> Zip Code
+            </label>
+          </div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+              <input type="checkbox" value=".Tract" /> Census Tract
+            </label>
+          </div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+              <input type="checkbox" value=".Block" /> Block
+            </label>
+          </div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+              <input type="checkbox" value=".BlockGroup" /> Block Group
+            </label>
+          </div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+              <input type="checkbox" value=".Economic" /> Economic Place
+            </label>
+          </div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+              <input type="checkbox" value=".OtherGeo" /> Other
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <div class="card-columns" id="grid"></div>
+    </div>
+
+    <!--SCRIPTS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script src="assets/script.js"></script>
+    <!--SCRIPTS-->
+  </body>
 </html>

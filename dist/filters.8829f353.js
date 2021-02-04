@@ -152,7 +152,8 @@ $(".btn-group").click(function () {
   var boxes = $(".filterCheckbox:checked");
 
   for (var i = 0; i < boxes.length; i++) {
-    filter += "." + boxes[i].id;
+    filter += "." + boxes[i].id; // adds a id of a checkbox to the filter
+
     var $pill = "<span href='' class='filterpill badge badge-census m-1' id=" + boxes[i].id + " >" + boxes[i].value + "</span>";
     $("#filterPills").append($pill);
   }
@@ -175,6 +176,7 @@ function filterSearch() {
   inputArray = inputVal.split(" ");
 
   if (filter) {
+    // filter shows up as ".classname1 .classname2 .classname3"
     $(".card").hide();
     searchText(inputArray, $(filter));
   } else {
@@ -214,6 +216,18 @@ function searchSubtopics() {
   filterCheckbox(div, input);
 }
 /**
+ * Shows all checkboxes inside the subtopic dropdown.  
+ */
+
+
+function showCheckbox(div) {
+  li = div.getElementsByTagName("li");
+
+  for (i = 0; i < li.length; i++) {
+    li[i].style.display = "";
+  }
+}
+/**
  * Resets the search input, filters selected, and pills
  * on the page and clears all previous selected.  
  */
@@ -225,6 +239,9 @@ function uncheckAll() {
   $("input[type='checkbox']:checked").prop("checked", false);
   filter = "";
   $("#filterPills").empty();
+  div = document.getElementById("subtopics");
+  document.getElementById("topicsInput").value = "";
+  showCheckbox(div);
   document.getElementById("quicksearch").value = "";
   filterSearch();
 }
@@ -267,7 +284,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51734" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55881" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
