@@ -16,10 +16,11 @@ This project was created as part of my extension from the Civic Digital Fellowsh
 - [Explore Census Data](https://data.census.gov/cedsci/): Finding datasets and using the Census API
 - [List of All Surveys & Programs](https://www.census.gov/programs-surveys/surveys-programs.html): The foundation for this project
 
-## Testing
+## Testing & Deployment
+
+This project uses [Parcel.js](https://github.com/parcel-bundler/parcel) to test and deploy it to the web.
 To test, run the command `parcel run index.html' in terminal. Then, open up [http://localhost:1234](http://localhost:1234) to preview your channges. 
 
-## Deployment
 To deploy this app, use [Parcel](http://parceljs.org) with the command `parcel index.html --public-url ./' which will launch a deployable version in the dist folder in your branch. Then, move a copy of those files to the gh-pages branch and push the commits to deploy!
 
 ## Authors and acknowledgment
