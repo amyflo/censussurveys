@@ -43,3 +43,15 @@ This project uses a synced base with a [read-only API key](https://support.airta
 
 ### Webpage: Census Survey Explorer
 The webpage uses the Airtable APi with the API key from the read-only account to dynamically create filterable cards and dropdown filters to update the Home page. It runs on a responsive framework [Bootstrap](https://getbootstrap.com/) and is mobile-friendly. Using the Airtable API, the webpage syncs records and can be used to build content into web pages.
+
+## Installing Parcel
+You'll need to install Node and Yarn (or npm) and create a package.json for your project if you haven't already.
+
+`yarn init`
+Then with Yarn you can install parcel into your app:
+
+`yarn add --dev parcel@next`
+From there you just need to point Parcel at some of your entry files. Like if you're building a website, an index.html file:
+
+`yarn parcel index.html`
+You should get a URL that looks something like: http://localhost:1234/.
